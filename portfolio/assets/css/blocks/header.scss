@@ -1,0 +1,57 @@
+// main: ../style.scss
+.header {
+  background: url('/portfolio/assets/img/bg.jpg');
+  background-repeat: no-repeat;
+  background-position: center 0;
+}
+
+.header__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+    background-image: url('/portfolio/assets/svg/logo.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: 0.3s;
+
+  &:hover {
+    filter: invert(76%) sepia(39%) saturate(257%)
+    hue-rotate(5deg) brightness(93%) contrast(88%);
+  }
+}
+
+.nav {
+  margin-left: auto;
+}
+
+.nav__list {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.nav__link {
+  padding: 0 15px;
+  line-height: 50px;
+  font-family: Inter, serif;
+  font-size: 2rem;
+  font-weight: 400;
+  color: $white;
+
+  transition: .3s;
+
+  &:hover {
+    color: $dark-gold;
+  }
+}
+
+.language-switcher {
+  margin: 0 20px 0 15px;
+  font-family: Inter, serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: $white;
+}
