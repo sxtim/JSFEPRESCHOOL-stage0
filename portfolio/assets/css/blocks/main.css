@@ -1,0 +1,11 @@
+.hero {
+  display: block;
+}
+
+.hero__inner {
+  background-image: url("/portfolio/assets/img/bg.jpg");
+  background-position: center -90px;
+  background-repeat: no-repeat;
+}
+
+/*# sourceMappingURL=main.css.map */
