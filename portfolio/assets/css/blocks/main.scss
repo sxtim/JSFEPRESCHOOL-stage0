@@ -12,10 +12,10 @@ main {
 }
 
 .hero__content-container {
-  max-width: 550px;
-  padding-top: 160px;
+  max-width: 570px;
+  padding-top: 154px;
   padding-left: 101px;
-  padding-bottom: 330px;
+  padding-bottom: 360px;
 }
 
 .hero-container {
@@ -26,8 +26,7 @@ main {
 
 
 .hero__title {
-  margin: 0;
-  padding: 0;
+  padding: 0 0 9px 0;
   font-family: 'Merriweather', serif;
   font-size: 60px;
   font-weight: 700;
@@ -35,8 +34,11 @@ main {
 }
 
 .hero__text {
+  display: block;
+  margin: 0;
+  padding: 0;
   font-family: Inter, serif;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 400;
   line-height: 40px;
 }
