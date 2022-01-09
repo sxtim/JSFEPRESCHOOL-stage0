@@ -3,19 +3,9 @@ main {
 
 }
 
-.container {
-  padding: 0;
-}
 
 .hero {
-
-}
-
-.hero__content-container {
-  max-width: 570px;
-  padding-top: 154px;
-  padding-left: 101px;
-  padding-bottom: 360px;
+  margin: 0 0 75px 0;
 }
 
 .hero-container {
@@ -24,6 +14,10 @@ main {
   background-repeat: no-repeat;
 }
 
+.hero__content-container {
+  max-width: 570px;
+  padding: 154px 0 360px 101px;
+}
 
 .hero__title {
   padding: 0 0 9px 0;
@@ -44,9 +38,9 @@ main {
 }
 
 .btn {
+  display: flex;
   width: 220px;
   height: 55px;
-  display: flex;
   justify-content: center;
   align-items: center;
   color: $black;
