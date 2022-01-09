@@ -1,9 +1,4 @@
 // main: ../style.scss
-main {
-
-}
-
-
 .hero {
   margin: 0 0 75px 0;
 }
@@ -37,21 +32,4 @@ main {
   line-height: 40px;
 }
 
-.btn {
-  display: flex;
-  width: 220px;
-  height: 55px;
-  justify-content: center;
-  align-items: center;
-  color: $black;
-  margin: 25px 0 0 0;
-  background-color: $dark-gold;
-  text-decoration: none;
-
-  transition: .3s;
-
-  &:hover {
-    color: $white;
-  }
-}
 

@@ -53,6 +53,40 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
 }
 
+.btn-gold {
+  width: 220px;
+  height: 55px;
+  font-family: Inter, serif;
+  font-size: 2rem;
+  font-weight: 400;
+  color: #000000;
+  margin: 25px 0 0 0;
+  background-color: #BDAE82;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.btn-gold:hover {
+  color: #ffffff;
+}
+
+.btn-transparent {
+  width: 220px;
+  height: 55px;
+  font-family: Inter, serif;
+  font-size: 2rem;
+  font-weight: 400;
+  border: 2px solid #CCBA8D;
+  color: #CCBA8D;
+  margin: 25px 0 0 0;
+  background-color: transparent;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.btn-transparent:hover {
+  background-color: #CCBA8D;
+  color: #000000;
+}
+
 html {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
@@ -168,22 +202,6 @@ body {
   line-height: 40px;
 }
 
-.btn {
-  display: flex;
-  width: 220px;
-  height: 55px;
-  justify-content: center;
-  align-items: center;
-  color: #000000;
-  margin: 25px 0 0 0;
-  background-color: #BDAE82;
-  text-decoration: none;
-  transition: 0.3s;
-}
-.btn:hover {
-  color: #ffffff;
-}
-
 .skills {
   margin: 0 0 111px 0;
 }
@@ -278,6 +296,59 @@ body {
 }
 .section-title:after {
   margin-left: 20px;
+}
+
+.portfolio__btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  margin: 33px 0 60px 0;
+}
+
+.portfolio__gallery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin: 0 0 100px 0;
+}
+
+.portfolio__gallery-element:nth-child(1) {
+  width: 450px;
+  height: 560px;
+  background: url("/portfolio/assets/img/portfolio-img.jpg");
+}
+
+.portfolio__gallery-element:nth-child(2) {
+  width: 450px;
+  height: 560px;
+  background: url("/portfolio/assets/img/portfolio-img-1.jpg");
+}
+
+.portfolio__gallery-element:nth-child(3) {
+  width: 450px;
+  height: 560px;
+  background: url("/portfolio/assets/img/portfolio-img-2.jpg");
+}
+
+.portfolio__gallery-element:nth-child(4) {
+  width: 450px;
+  height: 560px;
+  background: url("/portfolio/assets/img/portfolio-img-3.jpg");
+}
+
+.portfolio__gallery-element:nth-child(5) {
+  width: 450px;
+  height: 560px;
+  background: url("/portfolio/assets/img/portfolio-img-4.jpg");
+}
+
+.portfolio__gallery-element:nth-child(6) {
+  width: 450px;
+  height: 560px;
+  background: url("/portfolio/assets/img/portfolio-img-5.jpg");
 }
 
 /*# sourceMappingURL=style.css.map */

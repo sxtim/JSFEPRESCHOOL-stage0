@@ -1,5 +1,6 @@
 @import "blocks/null";
 @import "blocks/vars";
+@import "blocks/buttons";
 
 html {
   line-height: 1.15;
@@ -25,3 +26,4 @@ body {
 @import "blocks/hero";
 @import "blocks/skills";
 @import "blocks/section-title";
+@import "blocks/portfolio";
