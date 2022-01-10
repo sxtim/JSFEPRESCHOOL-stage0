@@ -1,0 +1,53 @@
+// main: ../style.scss
+.price__content-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin: 60px 0 0 0;
+}
+
+.price__content-item {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  //gap: 20px;
+  flex-wrap: wrap;
+  width: 450px;
+  height: 505px;
+  border: $gold 2px solid;
+}
+
+.price__content-item-title {
+  font-family: Merriweather, serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 56px;
+  margin: 43px 0 20px 0;
+}
+
+.price__content-item-price {
+  font-family: Merriweather, serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 48px;
+  color: $gold;
+  margin: 0 0 18px 0;
+}
+
+.item-description__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 0 37px 0;
+}
+
+.price__content-item-description {
+  display: block;
+  font-family: Inter, serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 36px;
+}

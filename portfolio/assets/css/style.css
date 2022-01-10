@@ -60,7 +60,6 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 2rem;
   font-weight: 400;
   color: #000000;
-  margin: 25px 0 0 0;
   background-color: #BDAE82;
   text-decoration: none;
   transition: 0.3s;
@@ -77,7 +76,6 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
   border: 2px solid #CCBA8D;
   color: #CCBA8D;
-  margin: 25px 0 0 0;
   background-color: transparent;
   text-decoration: none;
   transition: 0.3s;
@@ -194,7 +192,7 @@ body {
 
 .hero__text {
   display: block;
-  margin: 0;
+  margin: 0 0 25px 0;
   padding: 0;
   font-family: Inter, serif;
   font-size: 2rem;
@@ -303,7 +301,7 @@ body {
   justify-content: center;
   align-items: center;
   gap: 5px;
-  margin: 33px 0 60px 0;
+  margin: 60px 0 60px 0;
 }
 
 .portfolio__gallery {
@@ -370,6 +368,58 @@ body {
   width: 130px;
   height: 130px;
   background-image: url("/portfolio/assets/svg/play_hover.svg");
+}
+
+.price__content-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin: 60px 0 0 0;
+}
+
+.price__content-item {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 450px;
+  height: 505px;
+  border: #CCBA8D 2px solid;
+}
+
+.price__content-item-title {
+  font-family: Merriweather, serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 56px;
+  margin: 43px 0 20px 0;
+}
+
+.price__content-item-price {
+  font-family: Merriweather, serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 48px;
+  color: #CCBA8D;
+  margin: 0 0 18px 0;
+}
+
+.item-description__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 0 37px 0;
+}
+
+.price__content-item-description {
+  display: block;
+  font-family: Inter, serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 36px;
 }
 
 /*# sourceMappingURL=style.css.map */
