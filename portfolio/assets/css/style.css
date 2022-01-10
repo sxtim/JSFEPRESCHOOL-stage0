@@ -25,6 +25,7 @@ input::-ms-clear {
 
 button {
   cursor: pointer;
+  background: none;
 }
 
 button::-moz-focus-inner {
@@ -105,9 +106,7 @@ body {
 }
 
 .header {
-  background: url("/portfolio/assets/img/bg.jpg");
-  background-repeat: no-repeat;
-  background-position: center 0;
+  background: url("../../assets/img/bg.jpg") no-repeat center 0;
 }
 
 .header-container {
@@ -119,7 +118,7 @@ body {
 }
 
 .logo {
-  background-image: url("/portfolio/assets/svg/logo.svg");
+  background-image: url("../../assets/svg/logo.svg");
   background-size: contain;
   background-repeat: no-repeat;
   transition: 0.3s;
@@ -172,7 +171,7 @@ body {
 }
 
 .hero-container {
-  background-image: url("/portfolio/assets/img/bg.jpg");
+  background-image: url("../../assets/img/bg.jpg");
   background-position: center -90px;
   background-repeat: no-repeat;
 }
@@ -220,25 +219,25 @@ body {
   max-height: 240px;
 }
 .skills__item:nth-child(1) {
-  background-image: url("/portfolio/assets/svg/camera_1.svg");
+  background-image: url("../../assets/svg/camera_1.svg");
   background-repeat: no-repeat;
   background-size: 62px 50px;
   background-position: center top;
 }
 .skills__item:nth-child(2) {
-  background-image: url("/portfolio/assets/svg/video_1.svg");
+  background-image: url("../../assets/svg/video_1.svg");
   background-repeat: no-repeat;
   background-size: 60px 50px;
   background-position: center top;
 }
 .skills__item:nth-child(3) {
-  background-image: url("/portfolio/assets/svg/image_1.svg");
+  background-image: url("../../assets/svg/image_1.svg");
   background-repeat: no-repeat;
   background-size: 66px 50px;
   background-position: center top;
 }
 .skills__item:nth-child(4) {
-  background-image: url("/portfolio/assets/svg/mic_1.svg");
+  background-image: url("../../assets/svg/mic_1.svg");
   background-repeat: no-repeat;
   background-size: 32px 50px;
   background-position: center top;
@@ -316,37 +315,37 @@ body {
 .portfolio__gallery-item:nth-child(1) {
   width: 450px;
   height: 560px;
-  background: url("/portfolio/assets/img/portfolio-img.jpg");
+  background: url("../../assets/img/portfolio-img.jpg");
 }
 
 .portfolio__gallery-item:nth-child(2) {
   width: 450px;
   height: 560px;
-  background: url("/portfolio/assets/img/portfolio-img-1.jpg");
+  background: url("../../assets/img/portfolio-img-1.jpg");
 }
 
 .portfolio__gallery-item:nth-child(3) {
   width: 450px;
   height: 560px;
-  background: url("/portfolio/assets/img/portfolio-img-2.jpg");
+  background: url("../../assets/img/portfolio-img-2.jpg");
 }
 
 .portfolio__gallery-item:nth-child(4) {
   width: 450px;
   height: 560px;
-  background: url("/portfolio/assets/img/portfolio-img-3.jpg");
+  background: url("../../assets/img/portfolio-img-3.jpg");
 }
 
 .portfolio__gallery-item:nth-child(5) {
   width: 450px;
   height: 560px;
-  background: url("/portfolio/assets/img/portfolio-img-4.jpg");
+  background: url("../../assets/img/portfolio-img-4.jpg");
 }
 
 .portfolio__gallery-item:nth-child(6) {
   width: 450px;
   height: 560px;
-  background: url("/portfolio/assets/img/portfolio-img-5.jpg");
+  background: url("../../assets/img/portfolio-img-5.jpg");
 }
 
 .video {
@@ -361,13 +360,13 @@ body {
   margin: 60px 0 0 21px;
   width: 1400px;
   height: 705px;
-  background-image: url("/portfolio/assets/img/video_player.jpg");
+  background: url("../../assets/img/video_player.jpg") no-repeat center 0;
 }
 
 .video__player-button {
   width: 130px;
   height: 130px;
-  background-image: url("/portfolio/assets/svg/play_hover.svg");
+  background: url("../../assets/svg/play_hover.svg") no-repeat center 0;
 }
 
 .price__content-container {

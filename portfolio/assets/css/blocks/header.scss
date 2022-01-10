@@ -1,8 +1,7 @@
 // main: ../style.scss
 .header {
-  background: url("/portfolio/assets/img/bg.jpg");
-  background-repeat: no-repeat;
-  background-position: center 0;
+  //background: url("/portfolio/assets/img/bg.jpg");
+  background: url("../../assets/img/bg.jpg") no-repeat center 0;
 }
 
 .header-container {
@@ -14,7 +13,7 @@
 }
 
 .logo {
-    background-image: url('/portfolio/assets/svg/logo.svg');
+    background-image: url('../../assets/svg/logo.svg');
     background-size: contain;
     background-repeat: no-repeat;
     transition: 0.3s;
