@@ -1,0 +1,74 @@
+// main: ../style.scss
+.footer {
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Inter, serif;
+  font-size: 2rem;
+  line-height: 50px;
+  font-weight: 400;
+}
+
+.footer__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 406px;
+}
+
+.footer__info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer__logo {
+  margin: 0 0 0 20px;
+}
+
+
+.footer__logo-link {
+  color: $white;
+}
+
+.footer__info-link {
+  color: $white;
+}
+
+.footer__social-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer__social-link {
+  //display: block;
+  width: 32px;
+  height: 32px;
+}
+
+.footer__social-item {
+  width: 32px;
+  height: 32px;
+
+  &:nth-child(1) {
+    background: url("../../assets/svg/insta.svg") no-repeat center 0;
+  }
+
+  &:nth-child(2) {
+    background: url("../../assets/svg/facebook.svg") no-repeat center 0;
+  }
+
+  &:nth-child(3) {
+    background: url("../../assets/svg/twitter.svg") no-repeat center 0;
+    width: 28px;
+    height: 25px;
+  }
+
+  &:nth-child(4) {
+    background: url("../../assets/svg/pinterest.svg") no-repeat center 0;
+  }
+}

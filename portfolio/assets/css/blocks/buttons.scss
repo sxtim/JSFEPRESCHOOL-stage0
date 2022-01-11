@@ -1,0 +1,36 @@
+// main: ../style.scss
+.btn-gold {
+  width: 220px;
+  height: 55px;
+  font-family: Inter, serif;
+  font-size: 2rem;
+  font-weight: 400;
+  color: $black;
+  background-color: $dark-gold;
+  text-decoration: none;
+
+  transition: .3s;
+
+  &:hover {
+    color: $white;
+  }
+}
+
+.btn-transparent {
+  width: 220px;
+  height: 55px;
+  font-family: Inter, serif;
+  font-size: 2rem;
+  font-weight: 400;
+  border: 2px solid $gold;
+  color: $gold;
+  background-color: transparent;
+  text-decoration: none;
+
+  transition: .3s;
+
+  &:hover {
+    background-color: $gold;
+    color: $black;
+  }
+}

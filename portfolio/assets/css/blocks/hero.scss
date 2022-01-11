@@ -1,0 +1,35 @@
+// main: ../style.scss
+.hero {
+  margin: 0 0 75px 0;
+}
+
+.hero-container {
+  background: url('../../assets/img/bg.jpg');
+  background-position: center -90px;
+  background-repeat: no-repeat;
+}
+
+.hero__content-container {
+  max-width: 570px;
+  padding: 154px 0 360px 101px;
+}
+
+.hero__title {
+  padding: 0 0 9px 0;
+  font-family: 'Merriweather', serif;
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 120px;
+}
+
+.hero__text {
+  display: block;
+  margin:  0 0 25px 0;
+  padding: 0;
+  font-family: Inter, serif;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 40px;
+}
+
+

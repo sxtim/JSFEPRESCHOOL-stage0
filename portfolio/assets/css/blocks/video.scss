@@ -1,0 +1,27 @@
+// main: ../style.scss
+.video {
+  margin: 0 0 100px 0;
+}
+.video__player {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 60px 0 0 21px;
+  width: 1400px;
+  height: 705px;
+  background: url('../../assets/img/video_player.jpg') no-repeat center 0;
+}
+
+.video__player-button {
+  width: 130px;
+  height: 130px;
+  background: url('../../assets/svg/play_hover.svg') no-repeat center 0;
+
+  transition: 0.3s;
+
+  &:hover {
+    filter: invert(76%) sepia(39%) saturate(400%)
+    hue-rotate(5deg) brightness(250%) contrast(88%);
+  }
+}

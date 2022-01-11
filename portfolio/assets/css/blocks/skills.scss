@@ -1,0 +1,66 @@
+// main: ../style.scss
+.skills {
+  margin: 0 0 111px 0;
+}
+
+.skills__list {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  flex-wrap: wrap;
+  margin: 62px 0 0 0;
+  font-family: Inter, serif;
+}
+
+.skills__item {
+  display: flex;
+  flex-direction: column;
+  max-width: 320px;
+  max-height: 240px;
+
+  &:nth-child(1) {
+    background-image: url('../../assets/svg/camera_1.svg');
+    background-repeat: no-repeat;
+    background-size: 62px 50px;
+    background-position: center top;
+  }
+
+  &:nth-child(2) {
+    background-image: url('../../assets/svg/video_1.svg');
+    background-repeat: no-repeat;
+    background-size: 60px 50px;
+    background-position: center top;
+  }
+
+  &:nth-child(3) {
+    background-image: url('../../assets/svg/image_1.svg');
+    background-repeat: no-repeat;
+    background-size: 66px 50px;
+    background-position: center top;
+  }
+
+  &:nth-child(4) {
+    background-image: url('../../assets/svg/mic_1.svg');
+    background-repeat: no-repeat;
+    background-size: 32px 50px;
+    background-position: center top;
+  }
+}
+
+.skills__item-title {
+  margin: 100px 0 20px 0;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 4rem;
+  text-align: center;
+  color: $white;
+}
+
+.skills__item-text {
+  max-width: 280px;
+  max-height: 72px;
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 3.6rem;
+  text-align: center;
+}

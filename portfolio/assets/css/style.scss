@@ -1,0 +1,32 @@
+@import "blocks/null";
+@import "blocks/vars";
+@import "blocks/buttons";
+
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: $white;
+    background-color: $black;
+}
+
+.container {
+  width: 1440px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+@import "blocks/header";
+@import "blocks/hero";
+@import "blocks/skills";
+@import "blocks/section-title";
+@import "blocks/portfolio";
+@import "blocks/video";
+@import "blocks/price";
+@import "blocks/contacts";
+@import "blocks/footer";
