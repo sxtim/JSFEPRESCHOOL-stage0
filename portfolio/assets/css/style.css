@@ -374,6 +374,10 @@ body {
   width: 130px;
   height: 130px;
   background: url("../../assets/svg/play_hover.svg") no-repeat center 0;
+  transition: 0.3s;
+}
+.video__player-button:hover {
+  filter: invert(76%) sepia(39%) saturate(400%) hue-rotate(5deg) brightness(250%) contrast(88%);
 }
 
 .price__content-container {
@@ -520,7 +524,7 @@ body {
   color: #ffffff;
 }
 
-.footer__social {
+.footer__social-list {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -528,10 +532,8 @@ body {
 }
 
 .footer__social-item {
-  display: block;
   width: 32px;
   height: 32px;
-  margin: 0 auto;
 }
 .footer__social-item:nth-child(1) {
   background: url("../../assets/svg/insta.svg") no-repeat center 0;

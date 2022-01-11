@@ -37,7 +37,7 @@
   color: $white;
 }
 
-.footer__social {
+.footer__social-list {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -45,10 +45,8 @@
 }
 
 .footer__social-item {
-  display: block;
   width: 32px;
   height: 32px;
-  margin: 0 auto;
 
   &:nth-child(1) {
     background: url("../../assets/svg/insta.svg") no-repeat center 0;
@@ -67,5 +65,4 @@
   &:nth-child(4) {
     background: url("../../assets/svg/pinterest.svg") no-repeat center 0;
   }
-
 }

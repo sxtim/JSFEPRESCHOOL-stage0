@@ -17,4 +17,11 @@
   width: 130px;
   height: 130px;
   background: url('../../assets/svg/play_hover.svg') no-repeat center 0;
+
+  transition: 0.3s;
+
+  &:hover {
+    filter: invert(76%) sepia(39%) saturate(400%)
+    hue-rotate(5deg) brightness(250%) contrast(88%);
+  }
 }
