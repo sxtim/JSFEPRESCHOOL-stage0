@@ -61,5 +61,8 @@
 }
 .language-switcher__elem {
   padding: 0 0 0 9px;
-  color: $gold;
+
+  &:nth-child(1) {
+    color: $gold;
+  }
 }

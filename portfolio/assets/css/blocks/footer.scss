@@ -4,13 +4,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: Inter, serif;
+  font-size: 2rem;
+  line-height: 50px;
+  font-weight: 400;
 }
 
 .footer__container {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 416px;
+  gap: 406px;
 }
 
 .footer__info {
@@ -18,18 +22,12 @@
   justify-content: center;
   align-items: center;
   gap: 20px;
-  font-family: Inter, serif;
-  font-size: 2rem;
-  font-weight: 400;
-  line-height: 50px;
 }
 
 .footer__logo {
-  font-family: Inter, serif;
-  font-size: 2rem;
-  line-height: 50px;
-  font-weight: 400;
+  margin: 0 0 0 20px;
 }
+
 
 .footer__logo-link {
   color: $white;
