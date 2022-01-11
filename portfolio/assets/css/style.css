@@ -39,6 +39,7 @@ button::-moz-focus-inner {
 
 a, a:visited {
   text-decoration: none;
+  display: block;
 }
 
 a:hover {
@@ -477,6 +478,74 @@ body {
   font-weight: 400;
   line-height: 40px;
   padding: 5px 0 0 20px;
+}
+
+.footer {
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 416px;
+}
+
+.footer__info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  font-family: Inter, serif;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 50px;
+}
+
+.footer__logo {
+  font-family: Inter, serif;
+  font-size: 2rem;
+  line-height: 50px;
+  font-weight: 400;
+}
+
+.footer__logo-link {
+  color: #ffffff;
+}
+
+.footer__info-link {
+  color: #ffffff;
+}
+
+.footer__social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer__social-item {
+  display: block;
+  width: 32px;
+  height: 32px;
+  margin: 0 auto;
+}
+.footer__social-item:nth-child(1) {
+  background: url("../../assets/svg/insta.svg") no-repeat center 0;
+}
+.footer__social-item:nth-child(2) {
+  background: url("../../assets/svg/facebook.svg") no-repeat center 0;
+}
+.footer__social-item:nth-child(3) {
+  background: url("../../assets/svg/twitter.svg") no-repeat center 0;
+  width: 28px;
+  height: 25px;
+}
+.footer__social-item:nth-child(4) {
+  background: url("../../assets/svg/pinterest.svg") no-repeat center 0;
 }
 
 /*# sourceMappingURL=style.css.map */
