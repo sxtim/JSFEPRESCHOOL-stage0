@@ -1,7 +1,12 @@
 // main: ../style.scss
 .header {
-  //background: url("/portfolio/assets/img/bg.jpg");
-  background: url("../../assets/img/bg.jpg") no-repeat center 0;
+  ////background: url("/portfolio/assets/img/bg.jpg");
+  //background: url("../../assets/img/bg.jpg") no-repeat center 0;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 50;
 }
 
 .header-container {
@@ -19,8 +24,8 @@
     transition: 0.3s;
 
   &:hover {
-    filter: invert(76%) sepia(39%) saturate(257%)
-    hue-rotate(5deg) brightness(250%) contrast(88%);
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
   }
 }
 
