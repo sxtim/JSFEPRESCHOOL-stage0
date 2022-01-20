@@ -1,6 +1,7 @@
 // main: ../style.scss
 .section-title__container {
   display: flex;
+  flex: 1 1 auto;
   align-items: center;
   justify-content: center;
   overflow-x: hidden;
@@ -13,6 +14,7 @@
 
 .section-title {
   display: flex;
+  flex: 1 1 auto;
   justify-content: center;
   align-items: center;
   font-family: Merriweather, serif;

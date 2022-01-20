@@ -13,12 +13,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 90px;
+  min-height: 90px;
   padding: 0 20px;
 }
 
 .logo {
-    background-image: url('../../assets/svg/logo.svg');
+    //background-image: url('../../assets/svg/logo.svg');
     background-size: contain;
     background-repeat: no-repeat;
     transition: 0.3s;
@@ -31,20 +31,22 @@
 
 .nav {
   margin-left: auto;
+
 }
 
 .nav__list {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  flex-wrap: wrap;
   padding: 0 0 0 50px;
 }
 
 .nav__link {
   padding: 0 15px;
-  line-height: 50px;
+  line-height: 250%;
   font-family: Inter, serif;
-  font-size: 2rem;
+  font-size: 20px;
   font-weight: 400;
   color: $white;
 
