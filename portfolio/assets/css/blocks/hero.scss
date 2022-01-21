@@ -1,10 +1,13 @@
 // main: ../style.scss
 .hero {
-  //margin: 0 0 100px 0;
 }
 
 .hero-container {
   position: relative;
+
+  @media (max-width: 768px) {
+    margin: 20px 0 -20px 0;
+  }
 }
 
 .hero__content-container {

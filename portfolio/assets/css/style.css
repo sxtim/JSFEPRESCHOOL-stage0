@@ -127,13 +127,11 @@ body {
   padding: 0 20px;
 }
 
-.logo {
-  background-image: url("../../assets/svg/logo.svg");
-  background-size: contain;
-  background-repeat: no-repeat;
+.logo img {
+  padding: 0 0 0 40px;
   transition: 0.3s;
 }
-.logo:hover {
+.logo img:hover {
   filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
 }
 
@@ -181,6 +179,11 @@ body {
 
 .hero-container {
   position: relative;
+}
+@media (max-width: 768px) {
+  .hero-container {
+    margin: 20px 0 -20px 0;
+  }
 }
 
 .hero__content-container {
@@ -266,7 +269,8 @@ body {
 }
 @media (max-width: 768px) {
   .skills__list {
-    padding: 45px 45px 0 40px;
+    padding: 45px 45px 20px 40px;
+    margin: 0 0 -20px 0;
   }
 }
 
@@ -274,6 +278,7 @@ body {
   min-width: 320px;
   flex: 0 1 25%;
   padding: 0 22px;
+  margin: 0 0 10px 0;
 }
 @media (max-width: 768px) {
   .skills__list-column {
@@ -375,10 +380,18 @@ body {
 
 .portfolio__btn-container {
   display: flex;
+  flex: 0 1 25%;
   justify-content: center;
+  flex-wrap: wrap;
   align-items: center;
   gap: 5px;
-  margin: 60px 0 60px 0;
+  margin: 60px 0;
+}
+@media (max-width: 768px) {
+  .portfolio__btn-container {
+    margin: 50px 161px 60px 162px;
+    flex: 0 1 50%;
+  }
 }
 
 .portfolio__gallery {
@@ -387,7 +400,6 @@ body {
   align-items: center;
   flex-wrap: wrap;
   gap: 25px;
-  margin: 0 0 100px 0;
 }
 
 .portfolio__gallery-item:nth-child(1) {
@@ -426,20 +438,25 @@ body {
   background: url("../../assets/img/portfolio-img-5.jpg");
 }
 
-.video {
-  position: relative;
-  margin: 0 0 100px 0;
-}
-
-.video__image {
-  background-repeat: no-repeat;
+.video__player {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
+  padding: 60px 0 0 0;
+}
+@media (max-width: 768px) {
+  .video__player {
+    height: 628px;
+    background-position: center;
+  }
 }
 
 .video__player-button {
+  position: absolute;
   width: 130px;
   height: 130px;
   background: url("../../assets/svg/play_hover.svg") no-repeat center 0;
@@ -615,7 +632,14 @@ body {
   gap: 20px;
 }
 
+.footer__social-item a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .footer__social-icon {
+  text-align: center;
   width: 32px;
   height: 32px;
   transition: 0.3s;

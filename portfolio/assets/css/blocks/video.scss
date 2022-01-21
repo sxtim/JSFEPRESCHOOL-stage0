@@ -1,21 +1,28 @@
 // main: ../style.scss
 .video {
-  position: relative;
-  margin: 0 0 100px 0;
+
 }
-.video__image {
-  //background: url('../../assets/img/video_player.jpg');
-  background-repeat: no-repeat;
-  //position: absolute;
+
+
+.video__player {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
-  //z-index: 3;
+  padding: 60px 0 0 0;
 
+  @media (max-width: 768px) {
+    height: 628px;
+    background-position: center;
+
+  }
 }
 
 .video__player-button {
+  position: absolute;
   width: 130px;
   height: 130px;
   background: url('../../assets/svg/play_hover.svg') no-repeat center 0;
