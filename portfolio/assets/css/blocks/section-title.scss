@@ -1,14 +1,20 @@
 // main: ../style.scss
 .section-title__container {
   display: flex;
-  flex: 1 1 auto;
   align-items: center;
   justify-content: center;
   overflow-x: hidden;
+  padding: 100px 0 0 0;
   margin: 0 auto;
-  width: 700px;
-  height: 80px;
-  position: relative;
+  max-width: 700px;
+  //max-height: 80px;
+  //position: relative;
+
+  @media (max-width: 768px) {
+    padding: 80px 0 0 0;
+    max-width: 364px;
+    //height: 80px;
+  }
 
 }
 
@@ -18,9 +24,9 @@
   justify-content: center;
   align-items: center;
   font-family: Merriweather, serif;
-  font-size: 4rem;
+  font-size: 40px;
   font-weight: 700;
-  line-height: 8rem;
+  line-height: 200%;
   color: $dark-gold;
 
   &:before,
@@ -37,5 +43,11 @@
 
   &:after {
     margin-left: 20px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 32px;
+    line-height: 125%;
+    padding: 20px 136px;
   }
 }

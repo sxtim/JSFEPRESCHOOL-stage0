@@ -1,6 +1,6 @@
 // main: ../style.scss
 .hero {
-  margin: 0 0 100px 0;
+  //margin: 0 0 100px 0;
 }
 
 .hero-container {
@@ -13,6 +13,10 @@
   max-width: 550px;
   padding: 250px 0 330px 80px;
 
+  @media (max-width: 768px) {
+    max-width: 450px;
+    padding: 168px 0 152px 60px;
+  }
 }
 
 .hero__title {
@@ -22,6 +26,11 @@
   line-height: 200%;
   color: $white;
   margin: 0 0 10px 0;
+
+  @media (max-width: 768px) {
+    font-size: 32px;
+    margin: 0 0 20px 0;
+  }
 }
 
 .hero__text {
@@ -31,10 +40,15 @@
   font-weight: 400;
   color: $white;
   margin: 0 0 25px 0;
+
+  @media (max-width: 768px) {
+    line-height: 24px;
+    margin: 0 0 60px 0;
+  }
 }
 
 .hero__image {
-  background-image: url('../img/bg.jpg');
+  background: url('../img/bg.jpg');
   background-repeat: no-repeat;
   position: absolute;
   width: 100%;
@@ -42,11 +56,21 @@
   top: 0;
   left: 0;
 
+  @media (max-width: 992px) {
+    background-position: -140px -140px;
+  }
+
   @media (max-width: 768px) {
     height: 590px;
     background-position: -5px -30px;
     background-size: auto 620px;
   }
 }
-
+.main-block__image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
 
