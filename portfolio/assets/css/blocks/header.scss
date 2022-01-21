@@ -19,8 +19,11 @@
     //background-image: url('../../assets/svg/logo.svg');
     //background-size: contain;
     //background-repeat: no-repeat;
-  padding: 0 0 0 40px;
+    //padding: 0 0 0 10px;
     transition: 0.3s;
+  @media (max-width: 768px) {
+    padding: 0 0 0 40px;
+  }
 
   &:hover {
     filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
