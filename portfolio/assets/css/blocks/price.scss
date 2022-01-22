@@ -6,17 +6,27 @@
   flex-wrap: wrap;
   gap: 25px;
   margin: 60px 0 0 0;
+
+  @media (max-width: 768px) {
+    margin: 50px 0 0 0;
+    gap: 50px;
+  }
+
 }
 
 .price__content-item {
   display: flex;
   align-items: center;
   flex-direction: column;
-  //gap: 20px;
   flex-wrap: wrap;
   width: 450px;
   height: 505px;
   border: $gold 2px solid;
+
+  @media (max-width: 768px) {
+    width: 420px;
+  }
+
 }
 
 .price__content-item-title {
@@ -42,6 +52,11 @@
   align-items: center;
   flex-direction: column;
   margin: 0 0 37px 0;
+
+  @media (max-width: 768px) {
+    margin: 0 0 40px 0;
+  }
+
 }
 
 .price__content-item-description {

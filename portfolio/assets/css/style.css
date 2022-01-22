@@ -399,11 +399,12 @@ body {
   flex-wrap: wrap;
   align-items: center;
   gap: 5px;
-  margin: 50px 0 60px 0;
+  margin: 60px 0;
 }
 @media (max-width: 768px) {
   .portfolio__btn-container {
     max-width: 450px;
+    margin: 50px 0 60px 0;
   }
 }
 
@@ -554,6 +555,12 @@ body {
   gap: 25px;
   margin: 60px 0 0 0;
 }
+@media (max-width: 768px) {
+  .price__content-container {
+    margin: 50px 0 0 0;
+    gap: 50px;
+  }
+}
 
 .price__content-item {
   display: flex;
@@ -563,6 +570,11 @@ body {
   width: 450px;
   height: 505px;
   border: #CCBA8D 2px solid;
+}
+@media (max-width: 768px) {
+  .price__content-item {
+    width: 420px;
+  }
 }
 
 .price__content-item-title {
@@ -589,6 +601,11 @@ body {
   flex-direction: column;
   margin: 0 0 37px 0;
 }
+@media (max-width: 768px) {
+  .item-description__container {
+    margin: 0 0 40px 0;
+  }
+}
 
 .price__content-item-description {
   display: block;
@@ -606,23 +623,57 @@ body {
   width: 100%;
   height: 700px;
 }
+@media (max-width: 768px) {
+  .contacts__content-container {
+    justify-content: center;
+    margin: 80px 0 auto;
+    background: url("../../assets/img/contacts-768.jpg");
+    height: 600px;
+    background-size: auto;
+  }
+}
 
 .contacts__container {
   display: flex;
   flex-direction: column;
-  gap: 20px;
   width: 450px;
   height: 445px;
   margin: 60px 20px 0 0;
 }
+@media (max-width: 768px) {
+  .contacts__container {
+    align-items: center;
+    margin: 60px 0 0 0;
+  }
+}
+
+.contacts__forms {
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+  gap: 20px;
+  margin: 0 0 30px 0;
+}
+@media (max-width: 468px) {
+  .contacts__forms {
+    width: 250px;
+  }
+}
 
 .contacts__title {
   font-family: Merriweather, serif;
-  font-size: 4rem;
+  font-size: 40px;
   font-weight: 700;
-  line-height: 80px;
+  line-height: 200%;
   color: #BDAE82;
-  margin: 0 0 20px 0;
+  margin: 0 0 40px 0;
+}
+@media (max-width: 768px) {
+  .contacts__title {
+    text-align: center;
+    font-size: 32px;
+    line-height: 200%;
+  }
 }
 
 .contacts__email {
@@ -641,7 +692,6 @@ body {
   height: 100px;
   border: #CCBA8D solid 2px;
   background-color: rgba(0, 0, 0, 0.5);
-  margin: 0 0 13px 0;
 }
 
 ::placeholder {
