@@ -20,6 +20,11 @@
     max-width: 450px;
     padding: 168px 0 152px 60px;
   }
+
+  @media (max-width: 468px) {
+    max-width: 450px;
+    padding: 168px 0 100px 30px;
+  }
 }
 
 .hero__title {
@@ -34,6 +39,10 @@
     font-size: 32px;
     margin: 0 0 20px 0;
   }
+
+  @media (max-width: 468px) {
+    font-size: 26px;
+  }
 }
 
 .hero__text {
@@ -47,6 +56,10 @@
   @media (max-width: 768px) {
     line-height: 24px;
     margin: 0 0 60px 0;
+  }
+
+  @media (max-width: 468px) {
+    font-size: 16px;
   }
 }
 

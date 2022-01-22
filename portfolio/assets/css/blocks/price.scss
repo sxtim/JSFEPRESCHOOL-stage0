@@ -27,23 +27,37 @@
     width: 420px;
   }
 
+  @media (max-width: 468px) {
+    width: 270px;
+    height: 480px;
+  }
+
 }
 
 .price__content-item-title {
   font-family: Merriweather, serif;
-  font-size: 2.8rem;
+  font-size: 28px;
   font-weight: 700;
-  line-height: 56px;
+  line-height: 200%;
   margin: 43px 0 20px 0;
+
+  @media (max-width: 468px) {
+    font-size: 24px;
+  }
 }
 
 .price__content-item-price {
   font-family: Merriweather, serif;
-  font-size: 2.4rem;
+  font-size: 24px;
   font-weight: 700;
-  line-height: 48px;
+  line-height: 200%;
   color: $gold;
   margin: 0 0 18px 0;
+
+  @media (max-width: 468px) {
+    font-size: 18px;
+  }
+
 }
 
 .item-description__container {
