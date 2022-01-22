@@ -38,6 +38,7 @@
   align-items: center;
   width: 60px;
   height: 50px;
+  margin: 0 39px 0 0;
   cursor: pointer;
   user-select: none;
   z-index: 2;
@@ -50,10 +51,20 @@
   }
 }
 
+.strip {
+  width: 80%;
+  height: 2px;
+  background: rgb(255, 255, 255);
+  margin: 3px 0;
+  z-index: 15;
+  transition: all 0.3s ease-in-out;
+}
+
 
 .header__menu {
   margin-left: auto;
 }
+
 
 .nav {
   padding: 0 20px 0 0;
@@ -95,7 +106,7 @@
   color: $white;
 
   @media (max-width: 768px) {
-    padding: 0 115px 0 0;
+    padding: 0 17px 0 0;
   }
 
 }
