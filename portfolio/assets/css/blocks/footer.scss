@@ -1,40 +1,102 @@
 // main: ../style.scss
 .footer {
-  height: 150px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   font-family: Inter, serif;
   font-size: 2rem;
   line-height: 50px;
   font-weight: 400;
-}
+  min-height: 150px;
 
+  @media (max-width: 768px) {
+    min-height: 190px;
+  }
+
+
+}
+//
 .footer__container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 406px;
+  min-height: 150px;
+  justify-content: space-between;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    //width: 210px;
+    //height: 134px;
+    //gap: 20px;
+    min-height: 190px;
+    padding: 0 0 20px 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer__content-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
 }
 
 .footer__info {
   display: flex;
-  justify-content: center;
   align-items: center;
+  margin: 0 0 0 20px;
   gap: 20px;
+
+  @media (max-width: 768px) {
+    line-height: 24px;
+    margin: 0;
+  }
+}
+
+
+.footer__info-link {
+  transition: .3s;
+
+  &:hover {
+    color: $gold;
+  }
 }
 
 .footer__logo {
-  margin: 0 0 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    padding: 16px 0;
+    line-height: 24px;
+  }
+
 }
 
 
 .footer__logo-link {
   color: $white;
+
+  transition: .3s;
+
+  &:hover {
+    color: $gold;
+  }
 }
 
 .footer__info-link {
   color: $white;
+  }
+
+.footer__social {
+  display: flex;
+  position: relative;
+  right: 20px;
+
+  @media (max-width: 768px) {
+    top: 12px;
+    right: 0;
+  }
+
 }
 
 .footer__social-list {
@@ -42,33 +104,24 @@
   justify-content: center;
   align-items: center;
   gap: 20px;
+
 }
 
-.footer__social-link {
-  //display: block;
-  width: 32px;
-  height: 32px;
+.footer__social-item a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.footer__social-item {
+.footer__social-icon {
+  text-align: center;
   width: 32px;
   height: 32px;
 
-  &:nth-child(1) {
-    background: url("../../assets/svg/insta.svg") no-repeat center 0;
-  }
+  transition: .3s;
 
-  &:nth-child(2) {
-    background: url("../../assets/svg/facebook.svg") no-repeat center 0;
-  }
-
-  &:nth-child(3) {
-    background: url("../../assets/svg/twitter.svg") no-repeat center 0;
-    width: 28px;
-    height: 25px;
-  }
-
-  &:nth-child(4) {
-    background: url("../../assets/svg/pinterest.svg") no-repeat center 0;
+  &:hover {
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
   }
 }

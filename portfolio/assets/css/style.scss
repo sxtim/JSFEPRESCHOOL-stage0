@@ -16,9 +16,18 @@ body {
 }
 
 .container {
-  width: 1440px;
+  //display: flex;
+  //justify-content: space-between;
+  max-width: 1440px;
   margin: 0 auto;
   padding: 0;
+  min-height: 100%;
+  //flex-direction: column;
+  overflow: hidden;
+
+  //@media (max-width: 768px) {
+  //  max-width: 768px;
+  //}
 }
 
 @import "blocks/header";

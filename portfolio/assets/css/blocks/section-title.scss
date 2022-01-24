@@ -4,21 +4,30 @@
   align-items: center;
   justify-content: center;
   overflow-x: hidden;
+  padding: 100px 0 0 0;
   margin: 0 auto;
-  width: 700px;
-  height: 80px;
-  position: relative;
+  max-width: 700px;
+
+  @media (max-width: 768px) {
+    padding: 80px 0 0 0;
+    max-width: 364px;
+  }
+
+  @media (max-width: 390px) {
+    max-width: 250px;
+  }
 
 }
 
 .section-title {
   display: flex;
+  flex: 1 1 auto;
   justify-content: center;
   align-items: center;
   font-family: Merriweather, serif;
-  font-size: 4rem;
+  font-size: 40px;
   font-weight: 700;
-  line-height: 8rem;
+  line-height: 200%;
   color: $dark-gold;
 
   &:before,
@@ -35,5 +44,16 @@
 
   &:after {
     margin-left: 20px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 32px;
+    line-height: 125%;
+    padding: 20px 136px;
+  }
+
+  @media (max-width: 390px) {
+    font-size: 24px;
+    line-height: 100%;
   }
 }
