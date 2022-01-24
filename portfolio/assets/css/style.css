@@ -39,7 +39,6 @@ button::-moz-focus-inner {
 
 a, a:visited {
   text-decoration: none;
-  display: block;
 }
 
 a:hover {
@@ -190,37 +189,57 @@ body {
 }
 @media (max-width: 768px) {
   .header__menu-burger {
+    position: fixed;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    right: 0;
     width: 60px;
     height: 50px;
-    margin: 0 39px 0 0;
+    margin: 0 59px 0 0;
     cursor: pointer;
     user-select: none;
     z-index: 2;
     gap: 4px;
+    transition: 0.3s;
+  }
+  .header__menu-burger:hover {
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
   }
 
   .strip {
     width: 80%;
     height: 2px;
-    background: white;
+    background: #ffffff;
     margin: 3px 0;
-    z-index: 15;
-    transition: all 0.3s ease-in-out;
+    z-index: 10;
+    transition: all 1s ease 0s;
+  }
+
+  .header__menu-burger._active .strip:nth-child(1) {
+    transform: rotate(-45deg) translate(-10px, 7px);
+  }
+
+  .header__menu-burger._active .strip:nth-child(2) {
+    opacity: 0;
+  }
+
+  .header__menu-burger._active .strip:nth-child(3) {
+    transform: rotate(45deg) translate(-10px, -7px);
   }
 
   .header__menu {
+    position: fixed;
     width: 620px;
     height: 100vh;
     background-color: black;
-    position: absolute;
     right: -768px;
     top: 0;
     padding: 134px 0 0 127px;
     align-items: flex-start;
+    transition: all 1s ease 0s;
+    overflow: auto;
   }
 }
 @media (max-width: 768px) and (max-width: 500px) {
@@ -229,7 +248,7 @@ body {
   }
 }
 @media (max-width: 768px) {
-  .header__menu_active {
+  .header__menu._active {
     transform: translate(-768px, 0);
   }
 }
@@ -247,6 +266,10 @@ body {
 @media (max-width: 768px) {
   .nav__link {
     color: #ffffff;
+    transition: 0.3s;
+  }
+  .nav__link:hover {
+    color: #CCBA8D;
   }
 }
 .language-switcher {
@@ -257,11 +280,11 @@ body {
   font-size: 2rem;
   font-weight: 700;
   color: #ffffff;
-  margin-left: auto;
 }
 @media (max-width: 768px) {
   .language-switcher {
-    padding: 0 17px 0 0;
+    padding: 0 115px 0 0;
+    margin-left: auto;
   }
 }
 

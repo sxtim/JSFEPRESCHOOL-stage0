@@ -35,10 +35,6 @@
   display: none;
 }
 
-//.header__menu {
-//  margin-left: auto;
-//}
-
 @media (min-width: 769px) {
   .header__menu {
     margin-left: auto;
@@ -71,52 +67,69 @@
 @media (max-width: 768px) {
 
   .header__menu-burger {
+    position: fixed;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    right: 0;
     width: 60px;
     height: 50px;
-    margin: 0 39px 0 0;
+    margin: 0 59px 0 0;
     cursor: pointer;
     user-select: none;
     z-index: 2;
     gap: 4px;
+
+    transition: .3s;
+
+    &:hover {
+      filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+    }
   }
 
   .strip {
     width: 80%;
     height: 2px;
-    background: rgb(255, 255, 255);
+    background: $white;
     margin: 3px 0;
-    z-index: 15;
-    transition: all 0.3s ease-in-out;
+    z-index: 10;
+    transition: all  1s ease 0s;
+
+  }
+
+  .header__menu-burger._active .strip:nth-child(1) {
+    transform: rotate(-45deg) translate(-10px, 7px);
+  }
+
+  .header__menu-burger._active .strip:nth-child(2) {
+    opacity: 0;
+  }
+
+  .header__menu-burger._active .strip:nth-child(3) {
+    transform: rotate(45deg) translate(-10px, -7px);
   }
 
   .header__menu {
-    //display: flex;
-    //flex-direction: column;
+    position: fixed;
     width: 620px;
     height: 100vh;
     background-color: black;
-    position: absolute;
     right: -768px;
     top: 0;
-    //left: 0;
     padding: 134px 0 0 127px;
     align-items: flex-start;
-    //transform: translate(-768px, 0);
+    transition: all 1s ease 0s;
+    overflow: auto;
 
     @media (max-width: 500px) {
       padding: 134px 0 0 330px;
     }
   }
 
-  .header__menu_active {
+  .header__menu._active {
     transform: translate(-768px, 0);
   }
-
-
 
   .nav__list {
     font-size: 35px;
@@ -129,10 +142,15 @@
 
   .nav__link {
     color: $white;
+
+    transition: .3s;
+
+    &:hover {
+      color: $gold;
+    }
   }
 
 }
-
 .language-switcher {
   display: flex;
   justify-content: space-between;
@@ -141,10 +159,10 @@
   font-size: 2rem;
   font-weight: 700;
   color: $white;
-  margin-left: auto;
 
   @media (max-width: 768px) {
-    padding: 0 17px 0 0;
+    padding: 0 115px 0 0;
+    margin-left: auto;
   }
 }
 
