@@ -24,32 +24,37 @@
         <div class="header-container">
             <div class="logo">
                 <a href="#">
-                    <img src="./assets/svg/logo.svg" alt="image not found">
+                    <img src="./assets/svg/logo.svg" alt="logo">
                 </a>
             </div>
-            <nav class="nav">
-                <ul class="nav__list">
-                    <li class="nav__item">
-                        <a href="#section-skills" class="nav__link">Skills</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#section-portfolio" class="nav__link">Portfolio</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#section-video" class="nav__link">Video</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#section-price" class="nav__link">Price</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#section-contacts" class="nav__link">Contacts</a>
-                    </li>
-                </ul>
-            </nav>
+                <nav class="header__menu">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="#section-skills" class="nav__link">Skills</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#section-portfolio" class="nav__link">Portfolio</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#section-video" class="nav__link">Video</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#section-price" class="nav__link">Price</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#section-contacts" class="nav__link">Contacts</a>
+                        </li>
+                    </ul>
+                </nav>
             <div class="language-switcher">
-                <div class="language-switcher__elem">en</div>
-                <div class="language-switcher__elem">/</div>
-                <div class="language-switcher__elem">ru</div>
+                <span class="language-switcher__elem">en</span>
+                <span class="language-switcher__elem">/</span>
+                <span class="language-switcher__elem">ru</span>
+            </div>
+            <div class="header__menu-burger">
+                <div class="strip"></div>
+                <div class="strip"></div>
+                <div class="strip"></div>
             </div>
         </div>
     </div>
@@ -64,6 +69,7 @@
                         with professional photographer Alexa Rise</p>
                     <button class="btn-gold">Hire me</button>
                 </div>
+                <div class="hero__image"></div>
             </div>
         </section><!--/hero-->
         <section class="skills" id="section-skills"><!--skills-->
@@ -71,21 +77,41 @@
                 <h2 class="section-title">Skills</h2>
             </div>
             <div class="skills__list">
-                <div class="skills__item">
-                    <h3 class="skills__item-title">Digital photography</h3>
-                    <p class="skills__item-text">High-quality photos in the studio and on the nature</p>
+                <div class="skills__list-column">
+                    <div class="skills__item">
+                        <div class="skills__item-icon">
+                            <img src="./assets/svg/camera_1.svg" alt="pic_camera">
+                        </div>
+                        <h3 class="skills__item-title">Digital photography</h3>
+                        <p class="skills__item-text">High-quality photos in the studio and on the nature</p>
+                    </div>
                 </div>
-                <div class="skills__item">
-                    <h3 class="skills__item-title">Video shooting</h3>
-                    <p class="skills__item-text">Capture your moments so that they always stay with you</p>
+                <div class="skills__list-column">
+                    <div class="skills__item">
+                        <div class="skills__item-icon">
+                            <img src="./assets/svg/video_1.svg" alt="pic_video">
+                        </div>
+                        <h3 class="skills__item-title">Video shooting</h3>
+                        <p class="skills__item-text">Capture your moments so that they always stay with you</p>
+                    </div>
                 </div>
-                <div class="skills__item">
-                    <h3 class="skills__item-title">Retouch</h3>
-                    <p class="skills__item-text">I strive to make photography surpass reality</p>
+                <div class="skills__list-column">
+                    <div class="skills__item">
+                        <div class="skills__item-icon">
+                            <img src="./assets/svg/image_1.svg" alt="pic_image">
+                        </div>
+                        <h3 class="skills__item-title">Retouch</h3>
+                        <p class="skills__item-text">I strive to make photography surpass reality</p>
+                    </div>
                 </div>
-                <div class="skills__item">
-                    <h3 class="skills__item-title">Audio</h3>
-                    <p class="skills__item-text">Professional sounds recording for video, advertising, portfolio</p>
+                <div class="skills__list-column">
+                    <div class="skills__item">
+                        <div class="skills__item-icon">
+                            <img src="./assets/svg/mic_1.svg" alt="pic_mic">
+                        </div>
+                        <h3 class="skills__item-title">Audio</h3>
+                        <p class="skills__item-text">Professional sounds recording for video, advertising, portfolio</p>
+                    </div>
                 </div>
             </div>
         </section><!--/skills-->
@@ -112,8 +138,10 @@
             <div class="section-title__container">
                 <h2 class="section-title">Video</h2>
             </div>
-            <div class="video__player">
-                <button class="video__player-button"></button>
+            <div class="video__content">
+                <div class="video__player">
+                    <button class="video__player-button"></button>
+                </div>
             </div>
         </section><!--/video-->
         <section class="price" id="section-price"><!--price-->
@@ -122,7 +150,7 @@
             </div>
             <div class="price__content-container">
                 <div class="price__content-item">
-                    <h3 class="price__content-item-title">Standart</h3>
+                    <h3 class="price__content-item-title">Standard</h3>
                     <div class="price__content-item-price">500 $</div>
                     <div class="item-description__container">
                         <span class="price__content-item-description">One location</span>
@@ -163,11 +191,13 @@
             <div class="contacts__content-container">
                 <div class="contacts__container">
                     <h2 class="contacts__title">Contact me</h2>
-                    <input class="contacts__email" placeholder="E-mail" type="email">
-                    <input class="contacts__phone" placeholder="Phone" type="tel">
-                    <textarea class="contacts__message" placeholder="Message" name="contacts" id="#" cols="30"
-                              rows="10"></textarea>
-                    <button class="btn-gold">Send message</button>
+                    <div class="contacts__forms">
+                        <input class="contacts__email" placeholder="E-mail" type="email">
+                        <input class="contacts__phone" placeholder="Phone" type="tel">
+                        <textarea class="contacts__message" placeholder="Message" name="contacts" id="#" cols="30"
+                                  rows="10"></textarea>
+                    </div>
+                    <button class="contacts__btn btn-gold">Send message</button>
                 </div>
             </div>
         </section><!--/contacts-->
@@ -175,6 +205,7 @@
 </main>
 <footer class="footer"><!--footer-->
     <div class="container">
+
         <div class="footer__container">
             <div class="footer__info">
                 ©
@@ -184,20 +215,30 @@
             <div class="footer__logo">
                 <a href="https://rs.school/js/" class="footer__logo-link">Rolling Scopes School</a>
             </div>
-            <ul class="footer__social-list">
-                <li class="footer__social-item">
-                    <a class="footer__social-link" href="#"></a>
-                </li>
-                <li class="footer__social-item">
-                    <a class="footer__social-link" href="#"></a>
-                </li>
-                <li class="footer__social-item">
-                    <a class="footer__social-link" href="#"></a>
-                </li>
-                <li class="footer__social-item">
-                    <a class="footer__social-link" href="#"></a>
-                </li>
-            </ul>
+            <div class="footer__social">
+                <ul class="footer__social-list">
+                    <li class="footer__social-item">
+                        <a href="#">
+                            <img class="footer__social-icon" src="./assets/svg/insta.svg" alt="insta">
+                        </a>
+                    </li>
+                    <li class="footer__social-item">
+                        <a href="#">
+                            <img class="footer__social-icon" src="./assets/svg/facebook.svg" alt="facebook">
+                        </a>
+                    </li>
+                    <li class="footer__social-item">
+                        <a href="#">
+                            <img class="footer__social-icon" src="./assets/svg/twitter.svg" alt="twitter">
+                        </a>
+                    </li>
+                    <li class="footer__social-item">
+                        <a href="#">
+                            <img class="footer__social-icon" src="./assets/svg/pinterest.svg" alt="pinterest">
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </footer><!--/footer-->

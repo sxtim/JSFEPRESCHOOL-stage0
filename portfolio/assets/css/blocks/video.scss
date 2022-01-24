@@ -1,24 +1,47 @@
 // main: ../style.scss
-.video {
-  margin: 0 0 100px 0;
+.video__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+
 .video__player {
-  position: relative;
+  background: url('../../assets/img/video_player.jpg') no-repeat center 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 60px 0 0 21px;
-  width: 1400px;
+  width: 1440px;
   height: 705px;
-  background: url('../../assets/img/video_player.jpg') no-repeat center 0;
+  top: 0;
+  left: 0;
+  margin: 60px 0 0 0;
+
+  @media (max-width: 768px) {
+    background: url('../../assets/img/video-player-768.jpg') no-repeat 0 center;
+    margin: 50px 0 0 0;
+    width: 768px;
+    height: 418px;
+  }
+
+  @media (max-width: 468px) {
+    background-position: 100px;
+  }
 }
 
 .video__player-button {
   width: 130px;
   height: 130px;
-  background: url('../../assets/svg/play_hover.svg') no-repeat center 0;
+  background: url('../../assets/svg/play_hover.svg') no-repeat 0 center;
+  background-position: 0 0;
 
   transition: 0.3s;
+
+  @media (max-width: 768px) {
+    width: 64px;
+    height: 64px;
+    background-size: 100%;
+  }
 
   &:hover {
     filter: invert(76%) sepia(39%) saturate(400%)
