@@ -18,7 +18,7 @@
   }
 
   @media (max-width: 468px) {
-    max-width: 450px;
+    max-width: 300px;
     padding: 168px 0 100px 30px;
   }
 }
@@ -77,6 +77,11 @@
     background-position: -5px -30px;
     background-size: auto 620px;
   }
+
+  @media (max-width: 468px) {
+    background-position: -370px -140px;
+  }
+
 }
 
 //.main-block__image {
