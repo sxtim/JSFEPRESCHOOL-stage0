@@ -557,6 +557,11 @@ body {
   }
 }
 
+.portfolio-btn.active {
+  color: #000000;
+  background-color: #CCBA8D;
+}
+
 .portfolio__gallery {
   display: flex;
   justify-content: center;
@@ -571,80 +576,22 @@ body {
 }
 
 .portfolio__gallery-item {
-  width: 450px;
-  height: 560px;
+  max-width: 450px;
 }
 
-.portfolio__gallery-item:nth-child(1) {
-  background: url("../../assets/img/portfolio-img.jpg") no-repeat 0 center;
+.portfolio__photo {
+  transition: opacity 0.3s ease-in-out;
 }
 @media (max-width: 468px) {
-  .portfolio__gallery-item:nth-child(1) {
-    width: 280px;
-    height: 350px;
-    background-size: 100%;
-    background-position: center;
+  .portfolio__photo {
+    padding: 0 25px;
+    max-width: 100%;
+    object-fit: cover;
   }
 }
 
-.portfolio__gallery-item:nth-child(2) {
-  background: url("../../assets/img/portfolio-img-1.jpg") no-repeat 0 center;
-}
-@media (max-width: 468px) {
-  .portfolio__gallery-item:nth-child(2) {
-    width: 280px;
-    height: 350px;
-    background-size: 100%;
-    background-position: center;
-  }
-}
-
-.portfolio__gallery-item:nth-child(3) {
-  background: url("../../assets/img/portfolio-img-2.jpg") no-repeat 0 center;
-}
-@media (max-width: 468px) {
-  .portfolio__gallery-item:nth-child(3) {
-    width: 280px;
-    height: 350px;
-    background-size: 100%;
-    background-position: center;
-  }
-}
-
-.portfolio__gallery-item:nth-child(4) {
-  background: url("../../assets/img/portfolio-img-3.jpg") no-repeat 0 center;
-}
-@media (max-width: 468px) {
-  .portfolio__gallery-item:nth-child(4) {
-    width: 280px;
-    height: 350px;
-    background-size: 100%;
-    background-position: center;
-  }
-}
-
-.portfolio__gallery-item:nth-child(5) {
-  background: url("../../assets/img/portfolio-img-4.jpg") no-repeat 0 center;
-}
-@media (max-width: 468px) {
-  .portfolio__gallery-item:nth-child(5) {
-    width: 280px;
-    height: 350px;
-    background-size: 100%;
-    background-position: center;
-  }
-}
-
-.portfolio__gallery-item:nth-child(6) {
-  background: url("../../assets/img/portfolio-img-5.jpg") no-repeat 0 center;
-}
-@media (max-width: 468px) {
-  .portfolio__gallery-item:nth-child(6) {
-    width: 280px;
-    height: 350px;
-    background-size: 100%;
-    background-position: center;
-  }
+.portfolio__photo._active {
+  opacity: 0;
 }
 
 .video__content {
