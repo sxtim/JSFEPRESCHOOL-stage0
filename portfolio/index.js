@@ -22,14 +22,11 @@
 // - при клике по ссылке в адаптивном меню адаптивное меню плавно скрывается, крестик превращается в бургер-иконку +4 \n
 // total: 75 / 75`)
 
-const iconBurger = document.querySelector('.header__menu-burger');
-const headerMenu = document.querySelector('.header__menu');
-// const menu = document.querySelector('.nav__list');
-const portfolioButtons = document.querySelectorAll('.portfolio-btn');
-const portfolioImages = document.querySelectorAll('.portfolio__photo');
-
 
 /*BURGER MENU*/
+
+const iconBurger = document.querySelector('.header__menu-burger');
+const headerMenu = document.querySelector('.header__menu');
 if (iconBurger) {
 
     iconBurger.addEventListener("click", function (e) {
@@ -45,18 +42,15 @@ if (iconBurger) {
 
 /*PORTFOLIO BUTTONS*/
 
-// function activeStyle (arrObj, className, event) {
-//     if (event.target.classlist.contains(className)){
-//         arrObj.forEach(elem => elem.classList.remove(className));
-//     }
-//     elem.classlist.add(className);
-// }
+const portfolioButtons = document.querySelectorAll('.portfolio-btn');
+const portfolioImages = document.querySelectorAll('.portfolio__photo');
+
 
 portfolioButtons.forEach((button) => button.addEventListener('click', (event) => {
-    //кладем в переменную ссылку на сезон с атрибутом data
-    const portfolioSeason = event.target.dataset.season;
-    //если событие происходит на кнопке
+    //если событие происходит на кнопке portfolio-btn
     if (event.target.classList.contains('portfolio-btn')) {
+        //кладем в переменную значение dataset-season при нажатии
+        const portfolioSeason = event.target.dataset.season;
         portfolioImages.forEach((img, index) => {
             img.classList.add('_active');
             setTimeout(() => {
@@ -69,10 +63,32 @@ portfolioButtons.forEach((button) => button.addEventListener('click', (event) =>
     portfolioButtons.forEach(btn => btn.classList.remove('active'));
     button.classList.add('active');
 
-    // activeStyle(portfolioButtons, 'active');
 },));
 
+/*TRANSLATE*/
+import i18Obj from './assets/js/translate.js';
+const btnSwitcher = document.querySelectorAll('.btn-switcher');
+const getTranslate = (language) => {
+    const forTranslate = document.querySelectorAll('[data-lng]');
+    forTranslate.forEach(elem => {
+        elem.textContent = i18Obj[language][elem.dataset.lng];
 
+    });
+}
+
+
+btnSwitcher.forEach((btn) => btn.addEventListener('click', (event) => {
+    if (event.target.classList.contains('eng')) {
+        getTranslate('en');
+        btnSwitcher.forEach(btn => btn.classList.remove('_active'));
+    }
+    if (event.target.classList.contains('ru')) {
+        console.log('click');
+        getTranslate('ru');
+        btnSwitcher.forEach(btn => btn.classList.remove('_active'));
+    }
+    btn.classList.add('_active');
+}));
 
 
 

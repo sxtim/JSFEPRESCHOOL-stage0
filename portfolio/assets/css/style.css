@@ -293,8 +293,10 @@ body {
   display: flex;
   justify-content: space-between;
   gap: 8px;
+}
+.language-switcher button {
   font-family: Inter, serif;
-  font-size: 2rem;
+  font-size: 15px;
   font-weight: 700;
   color: #ffffff;
 }
@@ -305,13 +307,8 @@ body {
   }
 }
 
-.language-switcher__elem:nth-child(1) {
+.btn-switcher._active {
   color: #CCBA8D;
-}
-@media (max-width: 768px) {
-  .language-switcher__elem:nth-child(2) {
-    padding: 0 10px 0 2px;
-  }
 }
 
 .hero-container {

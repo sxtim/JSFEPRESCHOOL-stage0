@@ -164,10 +164,13 @@
   display: flex;
   justify-content: space-between;
   gap: 8px;
-  font-family: Inter, serif;
-  font-size: 2rem;
-  font-weight: 700;
-  color: $white;
+
+   button {
+     font-family: Inter, serif;
+     font-size: 15px;
+     font-weight: 700;
+     color: $white;
+  }
 
   @media (max-width: 768px) {
     padding: 0 115px 0 0;
@@ -175,16 +178,6 @@
   }
 }
 
-.language-switcher__elem {
-
-  &:nth-child(1) {
-    color: $gold;
-  }
-
-  &:nth-child(2) {
-    @media (max-width: 768px) {
-      padding: 0 10px 0 2px;
-    }
-  }
-
+.btn-switcher._active {
+  color: $gold;
 }
