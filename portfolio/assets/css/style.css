@@ -327,6 +327,7 @@ body {
   display: flex;
   justify-content: space-between;
   gap: 8px;
+  padding: 0 20px 0 0;
 }
 .language-switcher button {
   font-family: Inter, serif;
@@ -336,7 +337,6 @@ body {
 }
 @media (max-width: 768px) {
   .language-switcher {
-    padding: 0 115px 0 0;
     margin-left: auto;
   }
 }
@@ -347,6 +347,31 @@ body {
 
 .btn-switcher._active {
   color: #CCBA8D;
+}
+
+.theme__switcher {
+  width: 45px;
+  height: 45px;
+  background: url("../../assets/svg/sun.svg") no-repeat 0 center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.theme__switcher:hover {
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+}
+@media (max-width: 768px) {
+  .theme__switcher {
+    margin: 0 110px 0 0;
+  }
+}
+@media (max-width: 468px) {
+  .theme__switcher {
+    margin: 0 70px 0 0;
+  }
+}
+
+.theme__switcher.white-theme {
+  background: url("../../assets/svg/moon.svg") no-repeat 0 center;
 }
 
 .hero-container {

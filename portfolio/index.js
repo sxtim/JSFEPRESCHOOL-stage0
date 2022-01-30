@@ -24,7 +24,6 @@
 
 
 /*BURGER MENU*/
-
 const iconBurger = document.querySelector('.header__menu-burger');
 const headerMenu = document.querySelector('.header__menu');
 if (iconBurger) {
@@ -41,7 +40,6 @@ if (iconBurger) {
 }
 
 /*PORTFOLIO BUTTONS*/
-
 const portfolioButtons = document.querySelectorAll('.portfolio-btn');
 const portfolioImages = document.querySelectorAll('.portfolio__photo');
 
@@ -67,6 +65,7 @@ portfolioButtons.forEach((button) => button.addEventListener('click', (event) =>
 
 /*TRANSLATE*/
 import i18Obj from './assets/js/translate.js';
+
 const btnSwitcher = document.querySelectorAll('.btn-switcher');
 const getTranslate = (language) => {
     const forTranslate = document.querySelectorAll('[data-lng]');
@@ -74,7 +73,6 @@ const getTranslate = (language) => {
         elem.textContent = i18Obj[language][elem.dataset.lng];
     });
 }
-
 
 btnSwitcher.forEach((btn) => btn.addEventListener('click', (event) => {
     if (event.target.classList.contains('eng')) {
@@ -88,6 +86,20 @@ btnSwitcher.forEach((btn) => btn.addEventListener('click', (event) => {
     }
     btn.classList.add('_active');
 }));
+
+/*WHITE THEME*/
+const switcherTheme = document.querySelector('.theme__switcher');
+const body = document.querySelector('body');
+const sectionSkills = document.querySelector('.skills');
+const sectionPrice = document.querySelector('.price');
+const sectionTitle = document.querySelector('.section-title');
+const btnTransparent = document.querySelectorAll('.btn-transparent');
+const menu = document.querySelector('.header__menu');
+const elsSwitchTheme = [body, sectionSkills, sectionPrice, sectionTitle, ...btnTransparent, menu, switcherTheme];
+
+switcherTheme.addEventListener('click', (event) => {
+    elsSwitchTheme.forEach(item => item.classList.toggle('white-theme'));
+})
 
 
 
