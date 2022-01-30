@@ -72,7 +72,6 @@ const getTranslate = (language) => {
     const forTranslate = document.querySelectorAll('[data-lng]');
     forTranslate.forEach(elem => {
         elem.textContent = i18Obj[language][elem.dataset.lng];
-
     });
 }
 

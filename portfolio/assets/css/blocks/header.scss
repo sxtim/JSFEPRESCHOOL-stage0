@@ -150,7 +150,7 @@
   }
 
   .nav__link {
-    color: $white;
+    color: inherit;
 
     transition: .3s;
 
@@ -176,6 +176,10 @@
     padding: 0 115px 0 0;
     margin-left: auto;
   }
+}
+
+.btn-switcher:hover {
+  color: $gold;
 }
 
 .btn-switcher._active {

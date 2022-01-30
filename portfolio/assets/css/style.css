@@ -103,6 +103,40 @@ h1, h2, h3, h4, h5, h6 {
   color: #ffffff;
 }
 
+body.white-theme {
+  background-color: white;
+}
+
+.skills.white-theme {
+  color: #000000;
+}
+
+.price.white-theme {
+  color: #000000;
+}
+
+.section-title.white-theme {
+  color: #000000;
+}
+.section-title.white-theme:before, .section-title.white-theme:after {
+  background-color: #000000;
+}
+
+.btn-transparent.white-theme {
+  color: #000000;
+}
+.btn-transparent.white-theme:hover {
+  color: #ffffff;
+  background-color: #CCBA8D;
+}
+
+@media (max-width: 768px) {
+  .header__menu.white-theme {
+    color: #000000;
+    background-color: #ffffff;
+  }
+}
+
 html {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
@@ -282,7 +316,7 @@ body {
 }
 @media (max-width: 768px) {
   .nav__link {
-    color: #ffffff;
+    color: inherit;
     transition: 0.3s;
   }
   .nav__link:hover {
@@ -305,6 +339,10 @@ body {
     padding: 0 115px 0 0;
     margin-left: auto;
   }
+}
+
+.btn-switcher:hover {
+  color: #CCBA8D;
 }
 
 .btn-switcher._active {
@@ -452,7 +490,7 @@ body {
   font-weight: 700;
   line-height: 200%;
   text-align: center;
-  color: #ffffff;
+  color: inherit;
 }
 @media (max-width: 768px) {
   .skills__item-title {
@@ -556,6 +594,11 @@ body {
 
 .portfolio-btn.active {
   color: #000000;
+  background-color: #CCBA8D;
+}
+
+.portfolio-btn.white-theme.active {
+  color: #ffffff;
   background-color: #CCBA8D;
 }
 
@@ -830,6 +873,7 @@ body {
   min-height: 150px;
   justify-content: space-between;
   text-align: center;
+  background-color: #000000;
 }
 @media (max-width: 768px) {
   .footer__container {
