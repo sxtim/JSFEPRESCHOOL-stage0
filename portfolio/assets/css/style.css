@@ -260,6 +260,11 @@ body {
   }
 }
 @media (max-width: 768px) {
+  .strip._open {
+    background: #000000;
+  }
+}
+@media (max-width: 768px) {
   .header__menu-burger._active .strip:nth-child(1) {
     transform: rotate(-45deg) translate(-10px, 7px);
   }

@@ -26,14 +26,18 @@
 /*BURGER MENU*/
 const iconBurger = document.querySelector('.header__menu-burger');
 const headerMenu = document.querySelector('.header__menu');
+const stripBurger = document.querySelectorAll('.strip');
+
 if (iconBurger) {
 
-    iconBurger.addEventListener("click", function (e) {
+    iconBurger.addEventListener("click", () => {
         iconBurger.classList.toggle('_active');
+        console.log(theme);
+        if (theme === 'white-theme') stripBurger.forEach(e => e.classList.toggle('_open'));
         headerMenu.classList.toggle('_active');
     });
 
-    headerMenu.addEventListener("click", function (e) {
+    headerMenu.addEventListener("click", () => {
         iconBurger.classList.remove('_active');
         headerMenu.classList.remove('_active');
     });
@@ -67,21 +71,24 @@ portfolioButtons.forEach((button) => button.addEventListener('click', (event) =>
 import i18Obj from './assets/js/translate.js';
 
 const btnSwitcher = document.querySelectorAll('.btn-switcher');
-const getTranslate = (language) => {
+
+
+const getTranslate = (lang) => {
     const forTranslate = document.querySelectorAll('[data-lng]');
     forTranslate.forEach(elem => {
-        elem.textContent = i18Obj[language][elem.dataset.lng];
+        elem.textContent = i18Obj[lang][elem.dataset.lng];
     });
 }
 
 btnSwitcher.forEach((btn) => btn.addEventListener('click', (event) => {
     if (event.target.classList.contains('eng')) {
-        getTranslate('en');
+        lang = 'en';
+        getTranslate(lang);
         btnSwitcher.forEach(btn => btn.classList.remove('_active'));
     }
     if (event.target.classList.contains('ru')) {
-        console.log('click');
-        getTranslate('ru');
+        lang = 'ru';
+        getTranslate(lang);
         btnSwitcher.forEach(btn => btn.classList.remove('_active'));
     }
     btn.classList.add('_active');
@@ -96,10 +103,46 @@ const sectionTitle = document.querySelector('.section-title');
 const btnTransparent = document.querySelectorAll('.btn-transparent');
 const menu = document.querySelector('.header__menu');
 const elsSwitchTheme = [body, sectionSkills, sectionPrice, sectionTitle, ...btnTransparent, menu, switcherTheme];
+let theme = 'dark';
+switcherTheme.addEventListener('click', () => {
+    switcherTheme.classList.toggle('white-theme');
+    let themeTmp = (switcherTheme.classList.contains('white-theme')) ? 'white-theme' : 'dark';
+    switchTheme(themeTmp);
+});
+const switchTheme = (themeTmp) => {
+    if (themeTmp === 'white-theme') {
+        elsSwitchTheme.forEach(e => e.classList.add('white-theme'));
+        theme = 'white-theme';
+    } else {
+        elsSwitchTheme.forEach(e => e.classList.remove('white-theme'));
+        theme = 'dark';
+    }
+};
 
-switcherTheme.addEventListener('click', (event) => {
-    elsSwitchTheme.forEach(item => item.classList.toggle('white-theme'));
-})
+
+/*LOCAL STORAGE*/
+let lang = localStorage.getItem('lang');
+
+function setLocalStorage() {
+    localStorage.setItem('theme', theme);
+    localStorage.setItem('lang', lang);
+}
+
+window.addEventListener('load', getLocalStorage);
+
+function getLocalStorage() {
+    if (localStorage.getItem('lang')) {
+        const lg = localStorage.getItem('lang');
+        getTranslate(lg);
+    }
+    if (localStorage.getItem('theme')) {
+        const theme = localStorage.getItem('theme');
+        switchTheme(theme);
+    }
+}
+
+window.addEventListener('beforeunload', setLocalStorage);
+
 
 
 
