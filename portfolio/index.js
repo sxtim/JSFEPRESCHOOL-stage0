@@ -99,10 +99,10 @@ const switcherTheme = document.querySelector('.theme__switcher');
 const body = document.querySelector('body');
 const sectionSkills = document.querySelector('.skills');
 const sectionPrice = document.querySelector('.price');
-const sectionTitle = document.querySelector('.section-title');
+const sectionTitle = document.querySelectorAll('.section-title');
 const btnTransparent = document.querySelectorAll('.btn-transparent');
 const menu = document.querySelector('.header__menu');
-const elsSwitchTheme = [body, sectionSkills, sectionPrice, sectionTitle, ...btnTransparent, menu, switcherTheme];
+const elsSwitchTheme = [body, sectionSkills, sectionPrice, ...sectionTitle, ...btnTransparent, menu, switcherTheme];
 let theme = 'dark';
 switcherTheme.addEventListener('click', () => {
     switcherTheme.classList.toggle('white-theme');
