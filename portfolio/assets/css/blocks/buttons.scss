@@ -45,3 +45,20 @@
     color: $white;
   }
 }
+
+button:hover, button:focus{
+  transition: 0.7s; color:#fff;
+}
+
+.pulse:hover, .pulse:focus{
+  box-shadow: 0 0 0 1em rgba(255, 255, 255, 0);
+  animation: pulse 1s;
+}
+
+@keyframes pulse{
+  0%{box-shadow: 0 0 0 0 $gold}
+}
+
+.slide:hover, .slide:focus{
+  box-shadow: inset 13em 0 0 0 $gold;
+}

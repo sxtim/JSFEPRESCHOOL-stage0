@@ -1,0 +1,38 @@
+// main: ../style.scss
+body.white-theme {
+  background-color: white;
+}
+
+.skills.white-theme {
+  color: $black;
+}
+
+.price.white-theme {
+  color: $black;
+}
+
+.section-title.white-theme {
+  color: $black;
+
+  &:before,
+  &:after{
+    background-color: $black;
+  }
+}
+
+.btn-transparent.white-theme {
+  color: $black;
+
+  &:hover {
+    color: $white;
+    background-color: $gold;
+  }
+}
+
+.header__menu.white-theme {
+  @media (max-width: 768px) {
+    color: $black;
+    background-color: $white;
+  }
+}
+
