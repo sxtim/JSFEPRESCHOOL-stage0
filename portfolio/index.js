@@ -172,8 +172,3 @@ function getLocalStorage() {
 }
 
 window.addEventListener('beforeunload', setLocalStorage);
-
-
-
-
-
