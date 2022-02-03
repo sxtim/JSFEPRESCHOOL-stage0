@@ -78,7 +78,8 @@ const portfolioButtons = document.querySelectorAll('.portfolio-btn');
 const portfolioImages = document.querySelectorAll('.portfolio__photo');
 
 
-portfolioButtons.forEach((button) => button.addEventListener('click', (event) => {
+portfolioButtons.forEach((button) =>
+    button.addEventListener('click', (event) => {
     //если событие происходит на кнопке portfolio-btn
     if (event.target.classList.contains('portfolio-btn')) {
         //кладем в переменную значение dataset-season при нажатии
@@ -172,3 +173,16 @@ function getLocalStorage() {
 }
 
 window.addEventListener('beforeunload', setLocalStorage);
+
+/*VIDEO PLAYER*/
+const volumeLevel = document.querySelector('.player__slider-volume');
+
+
+
+
+function volumeLevelUpdate() {
+    const percent = volumeLevel.value;
+    volumeLevel.style.background = `linear-gradient(to right, #bdae82 0%, #bdae82 ${percent}%, transparent ${percent}%, transparent 100%)`;
+}
+
+volumeLevel.addEventListener('mousemove', volumeLevelUpdate)
