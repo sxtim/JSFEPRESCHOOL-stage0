@@ -34,13 +34,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width:1440px;
-  border:5px solid rgba(0,0,0,0.2);
-  box-shadow:0 0 20px rgba(0,0,0,0.2);
+  width: 100%;
+  border: 2px solid $gold;
   position: relative;
   font-size: 0;
+  margin: 60px 0 0 0;
   overflow: hidden;
 }
+
 
 .video__player-button {
   width: 130px;
@@ -162,7 +163,6 @@
   flex: 5;
   align-items: center;
 
-
   @media (max-width: 768px) {
     height: calc(20px + (10 - 5) * ((100vw - 320px) / (768 - 320)));
     width: calc(50px + (150 - 50) * ((100vw - 320px) / (768 - 320)));
@@ -208,6 +208,14 @@
   background:$gold;
   flex:0;
   flex-basis:50%;
+  //display: flex;
+  //border: solid 2px #c8c8c8;
+  //border-radius: 8px;
+  //height: 10px;
+  width: 100%;
+  outline: none;
+  //transition: background 450ms ease-in;
+  -webkit-appearance: none;
 }
 
 /* unholy css to style input type="range" */
