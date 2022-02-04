@@ -185,6 +185,7 @@ const volumeLevel = document.querySelector('.player__slider-volume');
 const fullScreenButton = document.querySelector('.player__full-icon');
 const currentVideoTime = document.querySelector('.player__time-elapsed');
 const durationVideoTime = document.querySelector('.player__time-duration');
+const speedVideo = document.querySelector('.player__speed-select');
 
 // play/pause
 function togglePlayPause() {
@@ -290,7 +291,12 @@ function getTimeProgressFieldUpdate () {
 video.addEventListener('timeupdate', getTimeProgressFieldUpdate);
 // video.addEventListener('canplay', getTimeProgressFieldUpdate);
 
+// video speed rate
+function changeVideoSpeed () {
+    video.playbackRate = speedVideo.value;
+}
 
+speedVideo.addEventListener('change', changeVideoSpeed)
 
 
 

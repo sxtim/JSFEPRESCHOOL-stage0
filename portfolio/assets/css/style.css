@@ -797,6 +797,29 @@ body {
   }
 }
 
+.player__speed-switcher {
+  display: flex;
+  margin: 0 0 0 30px;
+}
+@media (max-width: 768px) {
+  .player__speed-switcher {
+    margin-left: calc(0px + 30 * (100vw - 320px) / 448);
+  }
+}
+
+.player__speed-select {
+  font-size: 1.6rem;
+  background-color: white;
+}
+@media (max-width: 768px) {
+  .player__speed-select {
+    font-size: calc(6px + 10 * (100vw - 320px) / 448);
+  }
+}
+.player__speed-select:hover {
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+}
+
 .player__volume-icon {
   width: 3rem;
   height: 3rem;
@@ -870,7 +893,7 @@ body {
 @media (max-width: 768px) {
   .player__time-counter {
     margin: 0 calc(0px + 20 * (100vw - 320px) / 448);
-    font-size: calc(0px + 20 * (100vw - 320px) / 448);
+    font-size: calc(6px + 14 * (100vw - 320px) / 448);
   }
 }
 
@@ -893,6 +916,10 @@ body {
 
 .progress__filled::-webkit-slider-thumb {
   display: none;
+}
+
+.player-icons:hover {
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
 }
 
 /* unholy css to style input type="range" */
