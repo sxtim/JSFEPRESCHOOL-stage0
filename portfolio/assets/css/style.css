@@ -721,7 +721,6 @@ body {
   filter: invert(76%) sepia(39%) saturate(400%) hue-rotate(5deg) brightness(250%) contrast(88%);
 }
 
-/* This css is only applied when fullscreen is active. */
 .player:fullscreen {
   max-width: none;
   width: 100%;
@@ -741,6 +740,7 @@ body {
   position: absolute;
   bottom: 0;
   width: 100%;
+  transform: translateY(100%) translateY(-5px);
   transition: all 0.3s;
   flex-wrap: wrap;
   background: rgba(0, 0, 0, 0.5);
@@ -810,6 +810,7 @@ body {
 .player__speed-select {
   font-size: 1.6rem;
   background-color: white;
+  transition: 0.3s;
 }
 @media (max-width: 768px) {
   .player__speed-select {
@@ -817,7 +818,7 @@ body {
   }
 }
 .player__speed-select:hover {
-  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+  background-color: #CCBA8D;
 }
 
 .player__volume-icon {
@@ -869,6 +870,10 @@ body {
   border-radius: 50%;
   -webkit-appearance: none;
   cursor: pointer;
+  background: #ffffff;
+  transition: 0.3s;
+}
+.player__slider-volume::-webkit-slider-thumb:hover {
   background: #CCBA8D;
 }
 
@@ -922,7 +927,6 @@ body {
   filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
 }
 
-/* unholy css to style input type="range" */
 .price__content-container {
   display: flex;
   justify-content: center;
