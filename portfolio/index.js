@@ -72,30 +72,32 @@ function preloadImages() {
         }
     })
 }
+
 preloadImages();
 
 const portfolioButtons = document.querySelectorAll('.portfolio-btn');
 const portfolioImages = document.querySelectorAll('.portfolio__photo');
 
 
-portfolioButtons.forEach((button) => button.addEventListener('click', (event) => {
-    //если событие происходит на кнопке portfolio-btn
-    if (event.target.classList.contains('portfolio-btn')) {
-        //кладем в переменную значение dataset-season при нажатии
-        const portfolioSeason = event.target.dataset.season;
-        portfolioImages.forEach((img, index) => {
-            img.classList.add('_active');
-            setTimeout(() => {
-                img.classList.remove('_active');
-                img.src = `./assets/img/${portfolioSeason}/${index + 1}.jpg`;
-            }, 300);
-        });
-    }
-    //сначала очищаем все кнопки от стиля active, затем его добавляем нажатой кнопке
-    portfolioButtons.forEach(btn => btn.classList.remove('active'));
-    button.classList.add('active');
+portfolioButtons.forEach((button) =>
+    button.addEventListener('click', (event) => {
+        //если событие происходит на кнопке portfolio-btn
+        if (event.target.classList.contains('portfolio-btn')) {
+            //кладем в переменную значение dataset-season при нажатии
+            const portfolioSeason = event.target.dataset.season;
+            portfolioImages.forEach((img, index) => {
+                img.classList.add('_active');
+                setTimeout(() => {
+                    img.classList.remove('_active');
+                    img.src = `./assets/img/${portfolioSeason}/${index + 1}.jpg`;
+                }, 300);
+            });
+        }
+        //сначала очищаем все кнопки от стиля active, затем его добавляем нажатой кнопке
+        portfolioButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
 
-},));
+    },));
 
 /*TRANSLATE*/
 import i18Obj from './assets/js/translate.js';
@@ -172,6 +174,134 @@ function getLocalStorage() {
 }
 
 window.addEventListener('beforeunload', setLocalStorage);
+
+/*VIDEO PLAYER*/
+const video = document.querySelector('.player__video');
+const playButton = document.querySelector('.video__player-button');
+const playToggle = document.querySelector('.player__play-pause-icon');
+const progressField = document.querySelector('.progress__filled');
+const volumeToggle = document.querySelector('.player__volume-icon');
+const volumeLevel = document.querySelector('.player__slider-volume');
+const fullScreenButton = document.querySelector('.player__full-icon');
+const currentVideoTime = document.querySelector('.player__time-elapsed');
+const durationVideoTime = document.querySelector('.player__time-duration');
+const speedVideo = document.querySelector('.player__speed-select');
+
+// play/pause
+function togglePlayPause() {
+    const toggle = video.paused ? 'play' : 'pause';
+    video[toggle]();
+}
+
+playButton.addEventListener('click', togglePlayPause);
+playToggle.addEventListener('click', togglePlayPause);
+
+function changeIconPlay() {
+    let iconSrc = video.paused ? './assets/svg/play.svg' : './assets/svg/pause.svg';
+    playToggle.style.backgroundImage = `url(${iconSrc})`;
+    playButton.classList.toggle('video__player-button');
+}
+
+video.addEventListener('play', changeIconPlay);
+video.addEventListener('pause', changeIconPlay);
+
+// video progress
+function progressFieldUpdate() {
+    const percent = (video.currentTime / video.duration) * 100;
+    progressField.value = percent;
+    progressField.style.background = `linear-gradient(to right, #bdae82 0%, #bdae82 ${percent}%, transparent ${percent}%, transparent 100%)`;
+}
+
+video.addEventListener('timeupdate', progressFieldUpdate);
+
+function scrub(e) {
+    video.currentTime = (e.offsetX / progressField.offsetWidth) * video.duration;
+}
+
+progressField.addEventListener('click', scrub);
+
+// volume progress level
+let volumeCurrent =  volumeLevel.value
+function volumeIconChange() {
+    let iconSrc;
+    if (video.volume === 0) {
+        iconSrc = './assets/svg/volume.svg'
+        volumeToggle.style.backgroundImage = `url(${iconSrc})`;
+        video.volume = volumeCurrent;
+        volumeLevel.value = volumeCurrent;
+        const percent = volumeCurrent * 100;
+        volumeLevel.style.background = `linear-gradient(to right, #bdae82 0%, #bdae82 ${percent}%, transparent ${percent}%, transparent 100%)`;
+
+    } else {
+        iconSrc = './assets/svg/mute.svg'
+        volumeToggle.style.backgroundImage = `url(${iconSrc})`;
+        video.volume = 0;
+        volumeLevel.value = 0;
+        const percent = volumeCurrent;
+        volumeLevel.style.background = `linear-gradient(to right, #bdae82 0%, #bdae82 ${percent}%, transparent ${percent}%, transparent 100%)`;
+    }
+}
+
+volumeToggle.addEventListener('click', volumeIconChange);
+
+function volumeLevelUpdate() {
+    const percent = volumeLevel.value * 100;
+    volumeLevel.style.background = `linear-gradient(to right, #bdae82 0%, #bdae82 ${percent}%, transparent ${percent}%, transparent 100%)`;
+     volumeCurrent = volumeLevel.value;
+}
+
+volumeLevel.addEventListener('input', volumeLevelUpdate)
+
+function videoVolumeSet () {
+    volumeLevelUpdate();
+    let iconSrc;
+    video.volume = volumeLevel.value;
+    if (video.volume === 0) {
+        iconSrc = './assets/svg/mute.svg';
+        volumeToggle.style.backgroundImage = `url(${iconSrc})`;
+    } else {
+        iconSrc = './assets/svg/volume.svg';
+        volumeToggle.style.backgroundImage = `url(${iconSrc})`;
+    }
+    volumeLevel.addEventListener('change', videoVolumeSet);
+}
+
+volumeLevel.addEventListener('input', videoVolumeSet);
+
+fullScreenButton.addEventListener('click', () => {
+    video.requestFullscreen();
+});
+
+// get time min:sec
+
+function showTimeMinSec (time) {
+    let min = Math.floor(time / 60);
+    let sec = Math.floor(time % 60);
+    sec = sec > 9 ? sec : `0${sec}`;
+    return `${min}:${sec}`;
+}
+
+// time for time counter
+
+function getTimeProgressFieldUpdate () {
+    currentVideoTime.textContent = `${showTimeMinSec(video.currentTime)} /`
+    durationVideoTime.textContent = `${showTimeMinSec(video.duration)}`
+}
+
+video.addEventListener('timeupdate', getTimeProgressFieldUpdate);
+// video.addEventListener('canplay', getTimeProgressFieldUpdate);
+
+// video speed rate
+function changeVideoSpeed () {
+    video.playbackRate = speedVideo.value;
+}
+
+speedVideo.addEventListener('change', changeVideoSpeed)
+
+
+
+
+
 
 
 
