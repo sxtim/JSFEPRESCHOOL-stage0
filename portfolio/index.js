@@ -218,17 +218,14 @@ function scrub(e) {
 progressField.addEventListener('click', scrub);
 
 // volume progress level
-let volumeCurrent =  volumeLevel.value / 100;
-console.log('start vol current ' + volumeCurrent);
+let volumeCurrent =  volumeLevel.value
 function volumeIconChange() {
     let iconSrc;
     if (video.volume === 0) {
         iconSrc = './assets/svg/volume.svg'
         volumeToggle.style.backgroundImage = `url(${iconSrc})`;
-        console.log('if volume = 0  vol current ' + volumeCurrent);
         video.volume = volumeCurrent;
-        volumeLevel.value = volumeCurrent * 100;
-        console.log('if volume = 0  volumeLevel ' + volumeLevel.value);
+        volumeLevel.value = volumeCurrent;
         const percent = volumeCurrent * 100;
         volumeLevel.style.background = `linear-gradient(to right, #bdae82 0%, #bdae82 ${percent}%, transparent ${percent}%, transparent 100%)`;
 
@@ -245,10 +242,9 @@ function volumeIconChange() {
 volumeToggle.addEventListener('click', volumeIconChange);
 
 function volumeLevelUpdate() {
-    const percent = volumeLevel.value;
+    const percent = volumeLevel.value * 100;
     volumeLevel.style.background = `linear-gradient(to right, #bdae82 0%, #bdae82 ${percent}%, transparent ${percent}%, transparent 100%)`;
-     volumeCurrent = volumeLevel.value / 100;
-    console.log('volumeLevel with slider ' + volumeCurrent);
+     volumeCurrent = volumeLevel.value;
 }
 
 volumeLevel.addEventListener('input', volumeLevelUpdate)
@@ -256,7 +252,7 @@ volumeLevel.addEventListener('input', volumeLevelUpdate)
 function videoVolumeSet () {
     volumeLevelUpdate();
     let iconSrc;
-    video.volume = volumeLevel.value / 100;
+    video.volume = volumeLevel.value;
     if (video.volume === 0) {
         iconSrc = './assets/svg/mute.svg';
         volumeToggle.style.backgroundImage = `url(${iconSrc})`;
@@ -264,7 +260,6 @@ function videoVolumeSet () {
         iconSrc = './assets/svg/volume.svg';
         volumeToggle.style.backgroundImage = `url(${iconSrc})`;
     }
-
     volumeLevel.addEventListener('change', videoVolumeSet);
 }
 
