@@ -708,6 +708,7 @@ body {
   top: 50%;
   transform: translate(0, -50%);
   background: url("../../assets/svg/play_hover.svg") no-repeat 0 center;
+  cursor: pointer;
   transition: 0.3s;
 }
 @media (max-width: 768px) {
@@ -755,8 +756,8 @@ body {
   transform: translateY(0);
 }
 
-.player:hover .progress {
-  height: 15px;
+.player__controls:hover .progress {
+  height: 10px;
 }
 
 .player__controls-container {
@@ -827,12 +828,14 @@ body {
 }
 
 .player__slider-volume {
+  background: linear-gradient(to right, #bdae82 0%, #bdae82 40%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0) 100%);
   display: flex;
   border: solid 2px #c8c8c8;
   border-radius: 8px;
   height: 10px;
   width: 100%;
   outline: none;
+  cursor: pointer;
   transition: background 450ms ease-in;
   -webkit-appearance: none;
 }
@@ -842,7 +845,7 @@ body {
   height: 1.5rem;
   border-radius: 50%;
   -webkit-appearance: none;
-  cursor: ew-resize;
+  cursor: pointer;
   background: #CCBA8D;
 }
 
@@ -854,17 +857,19 @@ body {
   height: 5px;
   transition: height 0.3s;
   background: rgba(0, 0, 0, 0.5);
-  cursor: ew-resize;
+  cursor: pointer;
 }
 
 .progress__filled {
-  width: 50%;
-  background: #CCBA8D;
-  flex: 0;
-  flex-basis: 50%;
   width: 100%;
+  background-color: transparent;
+  cursor: pointer;
   outline: none;
   -webkit-appearance: none;
+}
+
+.progress__filled::-webkit-slider-thumb {
+  display: none;
 }
 
 /* unholy css to style input type="range" */

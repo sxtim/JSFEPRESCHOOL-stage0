@@ -175,8 +175,51 @@ function getLocalStorage() {
 window.addEventListener('beforeunload', setLocalStorage);
 
 /*VIDEO PLAYER*/
+const video = document.querySelector('.player__video');
+const playButton = document.querySelector('.video__player-button');
+const playToggle = document.querySelector('.player__play-pause-icon');
+const progressField = document.querySelector('.progress__filled');
+const volumeToogle = document.querySelector('.player__volume-icon');
 const volumeLevel = document.querySelector('.player__slider-volume');
 
+// play/pause
+function togglePlayPause() {
+    const toggle = video.paused ? 'play' : 'pause';
+    video[toggle]();
+}
+
+playButton.addEventListener('click', togglePlayPause);
+playToggle.addEventListener('click', togglePlayPause);
+
+function changeIconPlay () {
+    let iconSrc = video.paused ? './assets/svg/play.svg' : './assets/svg/pause.svg';
+    playToggle.style.backgroundImage = `url(${iconSrc})`;
+    playButton.classList.toggle('video__player-button');
+}
+
+video.addEventListener('play', changeIconPlay);
+video.addEventListener('pause', changeIconPlay);
+
+// video progress
+
+function progressFieldUpdate () {
+const percent = (video.currentTime / video.duration) * 100;
+progressField.value = percent;
+progressField.style.background = `linear-gradient(to right, #bdae82 0%, #bdae82 ${percent}%, transparent ${percent}%, transparent 100%)`;
+}
+
+video.addEventListener('timeupdate', progressFieldUpdate);
+video.addEventListener('timeupdate', progressFieldUpdate);
+
+function scrub(e) {
+    const scrubTime = (e.offsetX / progressField.offsetWidth) * video.duration;
+    console.log(scrubTime)
+    video.currentTime = scrubTime;
+}
+
+progressField.addEventListener('click', scrub);
+
+// console.log(percent.toString());
 
 
 
@@ -185,4 +228,4 @@ function volumeLevelUpdate() {
     volumeLevel.style.background = `linear-gradient(to right, #bdae82 0%, #bdae82 ${percent}%, transparent ${percent}%, transparent 100%)`;
 }
 
-volumeLevel.addEventListener('mousemove', volumeLevelUpdate)
+volumeLevel.addEventListener('input', volumeLevelUpdate)
