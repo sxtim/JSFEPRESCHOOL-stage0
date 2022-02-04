@@ -72,6 +72,7 @@ function preloadImages() {
         }
     })
 }
+
 preloadImages();
 
 const portfolioButtons = document.querySelectorAll('.portfolio-btn');
@@ -80,23 +81,23 @@ const portfolioImages = document.querySelectorAll('.portfolio__photo');
 
 portfolioButtons.forEach((button) =>
     button.addEventListener('click', (event) => {
-    //если событие происходит на кнопке portfolio-btn
-    if (event.target.classList.contains('portfolio-btn')) {
-        //кладем в переменную значение dataset-season при нажатии
-        const portfolioSeason = event.target.dataset.season;
-        portfolioImages.forEach((img, index) => {
-            img.classList.add('_active');
-            setTimeout(() => {
-                img.classList.remove('_active');
-                img.src = `./assets/img/${portfolioSeason}/${index + 1}.jpg`;
-            }, 300);
-        });
-    }
-    //сначала очищаем все кнопки от стиля active, затем его добавляем нажатой кнопке
-    portfolioButtons.forEach(btn => btn.classList.remove('active'));
-    button.classList.add('active');
+        //если событие происходит на кнопке portfolio-btn
+        if (event.target.classList.contains('portfolio-btn')) {
+            //кладем в переменную значение dataset-season при нажатии
+            const portfolioSeason = event.target.dataset.season;
+            portfolioImages.forEach((img, index) => {
+                img.classList.add('_active');
+                setTimeout(() => {
+                    img.classList.remove('_active');
+                    img.src = `./assets/img/${portfolioSeason}/${index + 1}.jpg`;
+                }, 300);
+            });
+        }
+        //сначала очищаем все кнопки от стиля active, затем его добавляем нажатой кнопке
+        portfolioButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
 
-},));
+    },));
 
 /*TRANSLATE*/
 import i18Obj from './assets/js/translate.js';
@@ -179,7 +180,7 @@ const video = document.querySelector('.player__video');
 const playButton = document.querySelector('.video__player-button');
 const playToggle = document.querySelector('.player__play-pause-icon');
 const progressField = document.querySelector('.progress__filled');
-const volumeToogle = document.querySelector('.player__volume-icon');
+const volumeToggle = document.querySelector('.player__volume-icon');
 const volumeLevel = document.querySelector('.player__slider-volume');
 
 // play/pause
@@ -191,7 +192,7 @@ function togglePlayPause() {
 playButton.addEventListener('click', togglePlayPause);
 playToggle.addEventListener('click', togglePlayPause);
 
-function changeIconPlay () {
+function changeIconPlay() {
     let iconSrc = video.paused ? './assets/svg/play.svg' : './assets/svg/pause.svg';
     playToggle.style.backgroundImage = `url(${iconSrc})`;
     playButton.classList.toggle('video__player-button');
@@ -201,31 +202,80 @@ video.addEventListener('play', changeIconPlay);
 video.addEventListener('pause', changeIconPlay);
 
 // video progress
-
-function progressFieldUpdate () {
-const percent = (video.currentTime / video.duration) * 100;
-progressField.value = percent;
-progressField.style.background = `linear-gradient(to right, #bdae82 0%, #bdae82 ${percent}%, transparent ${percent}%, transparent 100%)`;
+function progressFieldUpdate() {
+    const percent = (video.currentTime / video.duration) * 100;
+    progressField.value = percent;
+    progressField.style.background = `linear-gradient(to right, #bdae82 0%, #bdae82 ${percent}%, transparent ${percent}%, transparent 100%)`;
 }
 
 video.addEventListener('timeupdate', progressFieldUpdate);
 video.addEventListener('timeupdate', progressFieldUpdate);
 
 function scrub(e) {
-    const scrubTime = (e.offsetX / progressField.offsetWidth) * video.duration;
-    console.log(scrubTime)
-    video.currentTime = scrubTime;
+    video.currentTime = (e.offsetX / progressField.offsetWidth) * video.duration;
 }
 
 progressField.addEventListener('click', scrub);
 
-// console.log(percent.toString());
+// volume progress level
+let volumeCurrent =  volumeLevel.value / 100;
+console.log('start vol current ' + volumeCurrent);
+function volumeIconChange() {
+    let iconSrc;
+    if (video.volume === 0) {
+        iconSrc = './assets/svg/volume.svg'
+        volumeToggle.style.backgroundImage = `url(${iconSrc})`;
+        console.log('if volume = 0  vol current ' + volumeCurrent);
+        video.volume = volumeCurrent;
+        volumeLevel.value = volumeCurrent * 100;
+        console.log('if volume = 0  volumeLevel ' + volumeLevel.value);
+        const percent = volumeCurrent * 100;
+        volumeLevel.style.background = `linear-gradient(to right, #bdae82 0%, #bdae82 ${percent}%, transparent ${percent}%, transparent 100%)`;
 
+    } else {
+        iconSrc = './assets/svg/mute.svg'
+        volumeToggle.style.backgroundImage = `url(${iconSrc})`;
+        video.volume = 0;
+        volumeLevel.value = 0;
+        const percent = volumeCurrent;
+        volumeLevel.style.background = `linear-gradient(to right, #bdae82 0%, #bdae82 ${percent}%, transparent ${percent}%, transparent 100%)`;
+    }
+}
 
+volumeToggle.addEventListener('click', volumeIconChange);
 
 function volumeLevelUpdate() {
     const percent = volumeLevel.value;
     volumeLevel.style.background = `linear-gradient(to right, #bdae82 0%, #bdae82 ${percent}%, transparent ${percent}%, transparent 100%)`;
+     volumeCurrent = volumeLevel.value / 100;
+    console.log('volumeLevel with slider ' + volumeCurrent);
 }
 
 volumeLevel.addEventListener('input', volumeLevelUpdate)
+
+function videoVolumeSet () {
+    volumeLevelUpdate();
+    let iconSrc;
+    video.volume = volumeLevel.value / 100;
+    if (video.volume === 0) {
+        iconSrc = './assets/svg/mute.svg';
+        volumeToggle.style.backgroundImage = `url(${iconSrc})`;
+    } else {
+        iconSrc = './assets/svg/volume.svg';
+        volumeToggle.style.backgroundImage = `url(${iconSrc})`;
+    }
+
+    volumeLevel.addEventListener('change', videoVolumeSet);
+}
+
+volumeLevel.addEventListener('input', videoVolumeSet);
+
+
+
+
+
+
+
+
+
+

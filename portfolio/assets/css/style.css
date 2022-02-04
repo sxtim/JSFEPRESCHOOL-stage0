@@ -831,7 +831,7 @@ body {
   background: linear-gradient(to right, #bdae82 0%, #bdae82 40%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0) 100%);
   display: flex;
   border: solid 2px #c8c8c8;
-  border-radius: 8px;
+  border-radius: 4px;
   height: 10px;
   width: 100%;
   outline: none;

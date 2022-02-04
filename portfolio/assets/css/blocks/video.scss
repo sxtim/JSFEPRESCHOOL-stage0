@@ -174,7 +174,7 @@
 background: linear-gradient(to right, rgb(189, 174, 130) 0%, rgb(189, 174, 130) 40%, rgb(0, 0, 0, 0) 40%, rgb(0, 0, 0, 0) 100%);
   display: flex;
   border: solid 2px #c8c8c8;
-  border-radius: 8px;
+  border-radius: 4px;
   height: 10px;
   width: 100%;
   outline: none;
@@ -223,12 +223,12 @@ background: linear-gradient(to right, rgb(189, 174, 130) 0%, rgb(189, 174, 130) 
 
 .progress__filled::-webkit-slider-thumb {
   display: none;
-//  width: 1.5rem;
-//  height: 1.5rem;
-//  border-radius: 50%;
-//  -webkit-appearance: none;
-//  cursor: pointer;
-//  background: $gold;
+  //  width: 1.5rem;
+  //  height: 1.5rem;
+  //  border-radius: 50%;
+  //  -webkit-appearance: none;
+  //  cursor: pointer;
+  //  background: $gold;
 }
 
 /* unholy css to style input type="range" */
