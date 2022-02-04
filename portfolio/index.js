@@ -182,6 +182,7 @@ const playToggle = document.querySelector('.player__play-pause-icon');
 const progressField = document.querySelector('.progress__filled');
 const volumeToggle = document.querySelector('.player__volume-icon');
 const volumeLevel = document.querySelector('.player__slider-volume');
+const fullScreenButton = document.querySelector('.player__full-icon');
 
 // play/pause
 function togglePlayPause() {
@@ -264,6 +265,10 @@ function videoVolumeSet () {
 }
 
 volumeLevel.addEventListener('input', videoVolumeSet);
+
+fullScreenButton.addEventListener('click', () => {
+    video.requestFullscreen();
+})
 
 
 
