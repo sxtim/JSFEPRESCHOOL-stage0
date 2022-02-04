@@ -183,6 +183,8 @@ const progressField = document.querySelector('.progress__filled');
 const volumeToggle = document.querySelector('.player__volume-icon');
 const volumeLevel = document.querySelector('.player__slider-volume');
 const fullScreenButton = document.querySelector('.player__full-icon');
+const currentVideoTime = document.querySelector('.player__time-elapsed');
+const durationVideoTime = document.querySelector('.player__time-duration');
 
 // play/pause
 function togglePlayPause() {
@@ -209,7 +211,6 @@ function progressFieldUpdate() {
     progressField.style.background = `linear-gradient(to right, #bdae82 0%, #bdae82 ${percent}%, transparent ${percent}%, transparent 100%)`;
 }
 
-video.addEventListener('timeupdate', progressFieldUpdate);
 video.addEventListener('timeupdate', progressFieldUpdate);
 
 function scrub(e) {
@@ -268,7 +269,28 @@ volumeLevel.addEventListener('input', videoVolumeSet);
 
 fullScreenButton.addEventListener('click', () => {
     video.requestFullscreen();
-})
+});
+
+// get time min:sec
+
+function showTimeMinSec (time) {
+    let min = Math.floor(time / 60);
+    let sec = Math.floor(time % 60);
+    sec = sec > 9 ? sec : `0${sec}`;
+    return `${min}:${sec}`;
+}
+
+// time for time counter
+
+function getTimeProgressFieldUpdate () {
+    currentVideoTime.textContent = `${showTimeMinSec(video.currentTime)} /`
+    durationVideoTime.textContent = `${showTimeMinSec(video.duration)}`
+}
+
+video.addEventListener('timeupdate', getTimeProgressFieldUpdate);
+// video.addEventListener('canplay', getTimeProgressFieldUpdate);
+
+
 
 
 
