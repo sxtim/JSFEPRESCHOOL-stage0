@@ -1,0 +1,14 @@
+@import "blocks/null";
+@import "blocks/header.scss";
+
+body {
+  font-family: "Merriweather", sans-serif;
+  background-color: rgba(181, 120, 5, 0.8);
+}
+
+._container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 15px;
+  //min-height: 100%;
+}
