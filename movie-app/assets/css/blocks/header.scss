@@ -22,6 +22,7 @@
 }
 
 .header__logo {
+  opacity: 0.8;
   max-width: 100%;
 }
 
@@ -42,5 +43,9 @@
 
 .search:focus {
   outline: none;
-  background-color: rgba(181, 120, 5, 0.8);
+  background-color: rgba(181, 120, 5, 0.2);
+}
+
+input:focus::-webkit-input-placeholder {
+  color: transparent;
 }
