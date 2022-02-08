@@ -1,5 +1,6 @@
 const apiKey = '60bdc579-3b42-4708-abea-0b67e0e91fa6';
-const apiUrlPopular = 'https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_100_POPULAR_FILMS&page=1';
+const apiUrlPopular = 'https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_250_BEST_FILMS&page=1';
+const apiSearch = 'https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?keyword='
 
 // example
 //
@@ -33,25 +34,50 @@ async function getMovies(url) {
 }
 
 // отрисовку карточек фильмов переносим в js
-
-
 const showMovies = (data) => {
     const movies = document.querySelector('.movies__container');
+
+    //очищаем страницу
+    document.querySelector('.movies__container').innerHTML = '';
+
     data.films.forEach((movie) => {
+        let rating ='111';
+        if ( movie.rating) {
+            rating = movie.rating;
+        }
+
+
         //у блока movies__container создаем div для каждого фильма
         const movieItem = document.createElement('div');
         movieItem.classList.add('movies__item');
         movieItem.innerHTML =
             `<div class="movie__cover-container">
                 <img src=${movie.posterUrlPreview}
-                     alt=${movie.nameRu} class="movie__cover">
+                     alt=${movie.nameEn} class="movie__cover">
                 <div class="movie__cover-darkened"></div>
             </div>
-            <div class="movie__title">${movie.nameRu}</div>
+            <div class="movie__title">${movie.nameEn}</div>
             <div class="movie__category">${movie.genres.map((genre) => ` ${genre.genre}`)}</div>
-            <div class="movie__average movie__average--green">${movie.rating}</div>
+            <div class="movie__average movie__average--green">${rating}</div>
         </div>`;
 
         movies.appendChild(movieItem);
     });
 }
+// search
+const form = document.querySelector('form');
+const search = document.querySelector('.search');
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const searchUrl = `${apiSearch}${search.value}`
+
+    if (search.value) {
+
+        getMovies(searchUrl);
+
+        // search.value = '';
+    }
+})
+

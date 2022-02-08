@@ -7,14 +7,17 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-around;
+  justify-content: flex-start;
   //padding: 5rem;
 }
 
 .movies__item {
   width: 240px;
   position: relative;
-  margin: 3rem;
+  margin: 2rem;
+  height: 470px;
+  background-color: rgba(222, 160, 2, 1);
+  border-radius: 8px;
 }
 
 .movie__cover-container {
@@ -70,7 +73,7 @@
   right: 15px;
   font-size: 1.4rem;
   color: white;
-  background-color: rgba(181, 120, 5, 0.8);
+  background-color: rgba(181, 120, 5, 1);
   border-radius: 50%;
   width: 3.6rem;
   height: 3.6rem;

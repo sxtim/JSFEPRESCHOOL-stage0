@@ -93,13 +93,16 @@ input:focus::-webkit-input-placeholder {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-around;
+  justify-content: flex-start;
 }
 
 .movies__item {
   width: 240px;
   position: relative;
-  margin: 3rem;
+  margin: 2rem;
+  height: 470px;
+  background-color: #dea002;
+  border-radius: 8px;
 }
 
 .movie__cover-container {
@@ -152,7 +155,7 @@ input:focus::-webkit-input-placeholder {
   right: 15px;
   font-size: 1.4rem;
   color: white;
-  background-color: rgba(181, 120, 5, 0.8);
+  background-color: #b57805;
   border-radius: 50%;
   width: 3.6rem;
   height: 3.6rem;
