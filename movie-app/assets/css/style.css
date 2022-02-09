@@ -160,6 +160,12 @@ input:focus::-webkit-input-placeholder {
 .movie__average--green {
   border: 2px solid green; }
 
+.movie__average--orange {
+  border: 2px solid orange; }
+
+.movie__average--red {
+  border: 2px solid red; }
+
 body {
   font-family: "Merriweather", sans-serif;
   background-color: rgba(181, 120, 5, 0.8); }

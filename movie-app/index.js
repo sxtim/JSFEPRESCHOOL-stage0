@@ -2,7 +2,7 @@ const apiKey = '60bdc579-3b42-4708-abea-0b67e0e91fa6';
 const apiUrlPopular = 'https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_250_BEST_FILMS&page=1';
 const apiSearch = 'https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?keyword='
 
-// example
+// example api kinopoisk
 //
 // fetch('https://kinopoiskapiunofficial.tech/api/v2.2/films/301', {
 //     method: 'GET',
@@ -33,6 +33,17 @@ async function getMovies(url) {
     showMovies(respData);
 }
 
+//получаем цвет рейтинга
+function getColorClassByRate (rate) {
+    if (rate >= 7) {
+        return 'green';
+    }
+    if (rate > 5) {
+        return 'orange';
+    }
+    else return 'red';
+}
+
 // отрисовку карточек фильмов переносим в js
 const showMovies = (data) => {
     const movies = document.querySelector('.movies__container');
@@ -41,12 +52,6 @@ const showMovies = (data) => {
     document.querySelector('.movies__container').innerHTML = '';
 
     data.films.forEach((movie) => {
-        let rating ='111';
-        if ( movie.rating) {
-            rating = movie.rating;
-        }
-
-
         //у блока movies__container создаем div для каждого фильма
         const movieItem = document.createElement('div');
         movieItem.classList.add('movies__item');
@@ -58,7 +63,7 @@ const showMovies = (data) => {
             </div>
             <div class="movie__title">${movie.nameEn}</div>
             <div class="movie__category">${movie.genres.map((genre) => ` ${genre.genre}`)}</div>
-            <div class="movie__average movie__average--green">${rating}</div>
+            <div class="movie__average movie__average--${getColorClassByRate(movie.rating)}">${movie.rating}</div>
         </div>`;
 
         movies.appendChild(movieItem);
