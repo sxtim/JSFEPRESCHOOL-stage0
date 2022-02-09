@@ -51,7 +51,7 @@
 }
 
 .movie__title {
-  padding: 0.5rem 0;
+  padding: 0.5rem 0.5rem;
   font-size: 1.6rem;
   color: white;
   opacity: 0.8;
@@ -60,7 +60,8 @@
 
 .movie__category {
   font-size: 1.4rem;
-  color: rgba(66, 92, 47, 1);;
+  color: rgba(66, 92, 47, 1);
+  padding: 0.5rem;
 }
 
 .movie__average {
