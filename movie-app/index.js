@@ -45,7 +45,7 @@ function getColorClassByRate(rate) {
 
 //если нет названия на англ, получаем на ру
 function changeFilmName(nameEn, nameRu) {
-    return nameEn === null ? nameRu : nameEn;
+    return !nameEn ? nameRu : nameEn;
 }
 
 // отрисовку карточек фильмов переносим в js
@@ -57,10 +57,15 @@ const showMovies = (data) => {
 
     // у блока movies__container создаем div для каждого фильма
     data.films.forEach((movie) => {
+        //TODO
+        let movieId = movie.filmId;
+
+
         //обработка null в рейтинге
         if (movie.rating === 'null') {
             movie.rating = 'n/a';
         }
+        //обработка некорректно отображаемых рейтингов
         if (movie.rating.includes('%')) {
             movie.rating = movie.rating.slice(0, 2) / 10 ;
         }
@@ -76,7 +81,9 @@ const showMovies = (data) => {
             <div class="movie__title">${changeFilmName(movie.nameEn, movie.nameRu)}</div>
             <div class="movie__category">${movie.genres.map((genre) => ` ${genre.genre}`)}</div>
             <div class="movie__average movie__average--${getColorClassByRate(movie.rating)}">${movie.rating}</div>
-        </div>`;
+             <div class="overview"><h3>Overview</h3>
+             ${movie.description}
+             </div>`;
 
         movies.appendChild(movieItem);
     });

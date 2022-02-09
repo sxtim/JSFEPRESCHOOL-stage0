@@ -14,10 +14,21 @@
 .movies__item {
   width: 240px;
   position: relative;
+  overflow: hidden;
   margin: 2rem;
   height: 470px;
   background-color: rgba(222, 160, 2, 1);
   border-radius: 8px;
+
+  &:hover .overview {
+    transform: translateY(0);
+  }
+
+  &:hover .movie__cover-darkened {
+    background-color: transparent;
+    cursor: pointer;
+  }
+
 }
 
 .movie__cover-container {
@@ -41,12 +52,8 @@
   height: 100%;
   top: 50%;
   transform: translate(0, -50%);
+  transition: 0.3s;
   z-index: 1;
-
-  &:hover {
-    background-color: transparent;
-    cursor: pointer;
-  }
 
 }
 
@@ -91,3 +98,26 @@
 .movie__average--red {
   border: 2px solid red;
 }
+
+.overview {
+  font-size: 1.2rem;
+  background-color: rgba(181, 120, 5, 1);
+  color: white;
+  //opacity: .8;
+  padding: 1.5rem;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border-radius: 8px;
+  max-height: 100%;
+  transform: translateY(101%);
+  //overflow-y: auto;
+  transition: transform 0.3s ease-in;
+
+  h3 {
+    color: rgba(66, 92, 47, 1);
+  }
+
+}
+
