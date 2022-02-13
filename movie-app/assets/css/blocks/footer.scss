@@ -1,0 +1,36 @@
+//main: ../style.scss
+.footer {
+  max-height: 20rem;
+  background-color: #dea002;
+}
+
+.footer__content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer__info {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-size: 2rem;
+  color: white;
+  opacity: 0.8;
+
+
+
+  p {
+    font-family: "Garuda", sans-serif;
+  }
+
+}
+
+.footer__link {
+  color: white;
+}
+
+.footer__logo {
+  width: 10rem;
+  height: auto;
+  //padding: 3rem;
+}
