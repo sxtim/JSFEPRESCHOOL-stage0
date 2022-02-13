@@ -1,7 +1,7 @@
 const apiKey = '60bdc579-3b42-4708-abea-0b67e0e91fa6';
 const apiUrlPopular = 'https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_100_POPULAR_FILMS&page=1';
-const apiSearch = 'https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?keyword='
-
+const apiSearch = 'https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?keyword=';
+const apiFilmGetInfo = 'https://kinopoiskapiunofficial.tech/api/v2.2/films/';
 // example api kinopoisk
 //
 // fetch('https://kinopoiskapiunofficial.tech/api/v2.2/films/301', {
@@ -16,9 +16,9 @@ const apiSearch = 'https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-
 //     .catch(err => console.log(err))
 
 
-// авторизация с помощью header
-
 getMovies(apiUrlPopular);
+
+// console.log(getFilmInfo(apiFilmGetInfo, id));
 
 async function getMovies(url) {
     const resp = await fetch(url, {
@@ -29,9 +29,32 @@ async function getMovies(url) {
     });
     //получаем данные с фильмами в json
     const respData = await resp.json();
-    // console.log(respData);
+
     showMovies(respData);
 }
+
+
+async function getFilmDescription(url, id) {
+    const urlFilm = url + id;
+    let filmDescription = '';
+    const resp = await fetch(urlFilm, {
+        headers: {
+            'Content-Type': 'application/json',
+            'X-API-KEY': apiKey,
+        },
+    });
+
+    const respData = await resp.json();
+
+    for (const respDataKey in respData) {
+        if (respDataKey.includes('description')) {
+            filmDescription = respData[respDataKey];
+        }
+    }
+
+    return filmDescription;
+}
+
 
 //получаем цвет рейтинга
 function getColorClassByRate(rate) {
@@ -48,26 +71,27 @@ function changeFilmName(nameEn, nameRu) {
     return !nameEn ? nameRu : nameEn;
 }
 
-// отрисовку карточек фильмов переносим в js
-const showMovies = (data) => {
+// отрисовываем фильмы
+const showMovies = async (data) => {
     const movies = document.querySelector('.movies__container');
-
+    let filmId = '';
+    let description = '';
     //очищаем страницу
     document.querySelector('.movies__container').innerHTML = '';
+    // в блоке movies__container создаем div для каждого фильма
+    for (const movie of data.films) {
 
-    // у блока movies__container создаем div для каждого фильма
-    data.films.forEach((movie) => {
-        //TODO
-        let movieId = movie.filmId;
-
-
+        filmId = movie.filmId;
+        console.log(filmId);
+        description = await getFilmDescription(apiFilmGetInfo, filmId);
+        console.log(description);
         //обработка null в рейтинге
         if (movie.rating === 'null') {
             movie.rating = 'n/a';
         }
         //обработка некорректно отображаемых рейтингов
         if (movie.rating.includes('%')) {
-            movie.rating = movie.rating.slice(0, 2) / 10 ;
+            movie.rating = movie.rating.slice(0, 2) / 10;
         }
 
         const movieItem = document.createElement('div');
@@ -82,11 +106,11 @@ const showMovies = (data) => {
             <div class="movie__category">${movie.genres.map((genre) => ` ${genre.genre}`)}</div>
             <div class="movie__average movie__average--${getColorClassByRate(movie.rating)}">${movie.rating}</div>
              <div class="overview"><h3>Overview</h3>
-             ${movie.description}
+             ${description}
              </div>`;
 
         movies.appendChild(movieItem);
-    });
+    }
 }
 // search
 const form = document.querySelector('form');
