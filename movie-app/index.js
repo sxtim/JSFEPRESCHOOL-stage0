@@ -1,7 +1,38 @@
 const apiKey = '60bdc579-3b42-4708-abea-0b67e0e91fa6';
-const apiUrlPopular = 'https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_100_POPULAR_FILMS&page=1';
+const apiUrlPopular250 = 'https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_250_BEST_FILMS&page=1';
+const apiUrlPopular100 = 'https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_100_POPULAR_FILMS&page=1';
+const apiUrlAwait = 'https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_AWAIT_FILMS&page=1';
 const apiSearch = 'https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?keyword=';
 const apiFilmGetInfo = 'https://kinopoiskapiunofficial.tech/api/v2.2/films/';
+const topPopular = document.querySelector('.link__top-popular');
+const topAwait = document.querySelector('.link__top-await');
+const form = document.querySelector('form');
+const search = document.querySelector('.search');
+
+// default
+getMovies(apiUrlPopular250);
+
+// top 100
+topPopular.addEventListener('click', () => getMovies(apiUrlPopular100));
+
+// top await
+topAwait.addEventListener('click', () => getMovies(apiUrlAwait));
+
+
+// search
+form.addEventListener('submit', (e) => {
+    e.preventDefault(); //отменяем перезагрузку страницы при sabmit
+
+    const searchUrl = `${apiSearch}${search.value}`
+
+    if (search.value) {
+        getMovies(searchUrl);
+
+        // search.value = '';
+    }
+})
+
+
 // example api kinopoisk
 //
 // fetch('https://kinopoiskapiunofficial.tech/api/v2.2/films/301', {
@@ -16,9 +47,7 @@ const apiFilmGetInfo = 'https://kinopoiskapiunofficial.tech/api/v2.2/films/';
 //     .catch(err => console.log(err))
 
 
-getMovies(apiUrlPopular);
 
-// console.log(getFilmInfo(apiFilmGetInfo, id));
 
 async function getMovies(url) {
     const resp = await fetch(url, {
@@ -113,18 +142,10 @@ const showMovies = async (data) => {
     }
 }
 // search
-const form = document.querySelector('form');
-const search = document.querySelector('.search');
+// const form = document.querySelector('form');
+// const search = document.querySelector('.search');
 
-form.addEventListener('submit', (e) => {
-    e.preventDefault(); //отменяем перезагрузку страницы при sabmit
 
-    const searchUrl = `${apiSearch}${search.value}`
 
-    if (search.value) {
-        getMovies(searchUrl);
-
-        // search.value = '';
-    }
-})
+// top popular
 
