@@ -17,9 +17,19 @@
 }
 
 .header__logo {
-  color: white;
-  opacity: 0.8;
+  color: rgba(255, 255, 255, 0.8);
   max-width: 100%;
+}
+
+
+.link__top-popular {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.5rem;
+}
+
+.link__top-await {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.5rem;
 }
 
 label {
@@ -32,7 +42,7 @@ label {
   top: 50%;
   left: 1.3rem;
   transform: translate(0, -50%);
-  color: rgba(181, 120, 5, 1);
+  color: rgba(255, 255, 255, 0.8);
   cursor: pointer;
 
 }
@@ -42,16 +52,15 @@ label {
   width: 100%;
   max-height: 3rem;
   color: white;
-  border: 2px solid rgba(181, 120, 5, 0.8);
+  border: 2px solid rgba(255, 255, 255, 0.5);
   font-size: inherit;
   border-radius: 3rem;
   padding: 0.5rem 3.2rem;
   outline: none;
-  //position: relative;
 }
 
 .search::placeholder {
-  color: rgba(181, 120, 5, 0.8);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .search:focus {
@@ -66,7 +75,7 @@ input:focus::-webkit-input-placeholder {
 .close {
   background: transparent;
   cursor: pointer;
-  color: rgba(181, 120, 5, 1);
+  color: rgba(255, 255, 255, 0.8);
   position: absolute;
   top: 50%;
   right: 1rem;

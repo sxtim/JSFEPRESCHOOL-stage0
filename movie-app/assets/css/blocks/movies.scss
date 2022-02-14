@@ -102,7 +102,7 @@
 .overview {
   font-size: 1.2rem;
   background-color: rgba(181, 120, 5, 1);
-  color: white;
+  color: rgba(255, 255, 255, 0.8);
   //opacity: .8;
   padding: 1.5rem;
   position: absolute;
@@ -116,7 +116,7 @@
   transition: transform 0.3s ease-in;
 
   h3 {
-    color: rgba(66, 92, 47, 1);
+    color: rgba(255, 255, 255, 0.8);
   }
 
 }
