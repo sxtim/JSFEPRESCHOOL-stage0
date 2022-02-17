@@ -11,6 +11,7 @@ body {
     background: #353336;
     width: 100vw;
     height: 100vh;
+    gap: 30px;
 }
 
 .game__canvas {
@@ -21,18 +22,21 @@ body {
 .game__header {
     display: flex;
     justify-content: space-between;
-    padding: 20px 0;
+
 }
 .score {
-    padding: 10px 15px;
     min-width: 160px;
     height: 50px;
-    background: #121214;
+    background: transparent;
     border-radius: 5px;
+    color: #ff9b05;
+    font-size: 40px;
 
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 20px;
+
 }
 .score-count{
     font-size: 40px;
@@ -45,7 +49,20 @@ body {
     background-color: #161618;
     border-radius: 5px;
     border: 10px solid #161618;
-    box-shadow: 0px 0px 40px 10px #161618;
+    box-shadow: 0 0 40px 10px #161618;
 
     background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg opacity='0.2'%3E%3Ccircle cx='8' cy='8' r='4' fill='%23525053'/%3E%3C/g%3E%3C/svg%3E%0A");
+}
+
+.restart {
+    background: none;
+    color: #ff9b05;
+}
+
+button {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    text-align: center;
+    font-size: 20px;
 }
