@@ -5,7 +5,7 @@ let score = 0;
 /*STARTING VALUES*/
 const config = {
     step: 0, // для пропуска игрового цикла
-    maxStep: 12, // для пропуска игрового цикла
+    maxStep: 16, // для пропуска игрового цикла
     cellSize: 16, // размер ячейки
     barrySize: 16 / 4 // размер ягоды
 }
@@ -28,7 +28,7 @@ drawScore(); // отрисовываем score
 
 function gameLoop() {
     requestAnimationFrame(gameLoop); // безконечено вызываем игровой цикл
-    if (++config.step < config.maxStep) { // пропускаем цикл (контроль скорости отрисовки на экране)
+    if (++config.step <= config.maxStep) { // пропускаем цикл (контроль скорости отрисовки на экране)
         return;
     }
     config.step = 0;
@@ -36,6 +36,7 @@ function gameLoop() {
     ctx.clearRect(0, 0, canvas.width, canvas.height); // каждый кадр очищаем canvas
     snakeDraw(); //отрисовываем змейку
     berryDraw(); // отрисовываем ягоду
+
 }
 
 requestAnimationFrame(gameLoop);
@@ -45,7 +46,9 @@ function snakeDraw() {
     snake.y += snake.dy;
     snake.tails.unshift({x: snake.x, y: snake.y});
 
-    collisionBorderGameField ();
+    collisionBorderGameField();
+    console.log('canvas width ' + canvas.width)
+    console.log('canvas height ' + canvas.height)
 
     if (snake.tails.length > snake.tailsMax) {
         snake.tails.pop();
@@ -53,19 +56,21 @@ function snakeDraw() {
 
     snake.tails.forEach(function (e, index) {// рисуем змейку
         if (index === 0) {
-            ctx.fillStyle = '#ff7b00';
+            ctx.fillStyle = '#ff8800';
         } else {
             ctx.fillStyle = '#ff9b05';
         }
-        const circle = new Path2D();
-        circle.arc(e.x - config.cellSize / 2, e.y - config.cellSize / 2, config.cellSize / 2, 0, 2 * Math.PI);
-        ctx.fill(circle);
-        // ctx.fillRect(e.x, e.y, config.cellSize, config.cellSize);
-
+        // const circle = new Path2D();
+        // circle.arc(e.x/* - config.cellSize / 2*/, e.y /*- config.cellSize / 2*/, config.cellSize / 2, 0, 2 * Math.PI);
+        // ctx.fill(circle);
+        ctx.fillRect(e.x, e.y, config.cellSize, config.cellSize);
+        // console.log('x :' + e.x);
+        // console.log('y :' + e.y);
         if (e.x === berry.x && e.y === berry.y) {
             snake.tailsMax++;
             counterScore();
             randomPositionBerry();
+            console.log('COLLISION')
         }
 
         for (let i = index + 1; i < snake.tails.length; i++) {
@@ -76,30 +81,36 @@ function snakeDraw() {
     })
 }
 
-function collisionBorderGameField () {
+function collisionBorderGameField() {
+    console.log(snake.x)
+    console.log(snake.y)
     if (snake.x < 0) {
-        snake.x = canvas.width + 15;
-    } else if (snake.x >= canvas.width) {
+        snake.x = canvas.width - config.cellSize;
+    } else if (snake.x > canvas.width - config.cellSize) {
         snake.x = 0;
     }
 
     if (snake.y < 0) {
-        snake.y = canvas.height + 15;
-    } else if (snake.y >= canvas.height) {
+        snake.y = canvas.height - config.cellSize;
+    } else if (snake.y > canvas.height - config.cellSize) {
         snake.y = 0;
     }
 }
 
+function berryDraw() {
+    ctx.beginPath();
+    ctx.fillStyle = '#ff9b05';
+    ctx.arc(berry.x + (config.cellSize / 2), berry.y + (config.cellSize / 2), config.barrySize, 0, 2 * Math.PI);
+    ctx.fill();
+}
 
 function randomPositionBerry() {
-    // todo
+    console.log(berry.x = getRandomInt(0, canvas.width / config.cellSize) * config.cellSize);
+    console.log(berry.y = getRandomInt(0, canvas.height / config.cellSize) * config.cellSize);
+
 }
 
 function restartGame() {
-    //todo
-}
-
-function berryDraw() {
     //todo
 }
 
@@ -134,3 +145,9 @@ document.addEventListener('keydown', e => {
         }
     }
 )
+
+document.addEventListener('keydown', e => {
+    if (e.code === 'Space') {
+        config.maxStep = 1000;
+    }
+})
