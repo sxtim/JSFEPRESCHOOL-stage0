@@ -85,15 +85,15 @@ function collisionBorderGameField() {
     console.log(snake.x)
     console.log(snake.y)
     if (snake.x < 0) {
-        snake.x = canvas.width - config.cellSize;
+        snake.x = canvas.width //- config.cellSize;
     } else if (snake.x > canvas.width - config.cellSize) {
-        snake.x = 0;
+        snake.x = - config.cellSize;
     }
 
     if (snake.y < 0) {
-        snake.y = canvas.height - config.cellSize;
+        snake.y = canvas.height //- config.cellSize;
     } else if (snake.y > canvas.height - config.cellSize) {
-        snake.y = 0;
+        snake.y = - config.cellSize;
     }
 }
 
