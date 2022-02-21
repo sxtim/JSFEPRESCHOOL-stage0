@@ -3,6 +3,7 @@ let ctx = canvas.getContext('2d'); // получаем 2d апи сanvas
 const scoreBlock = document.querySelector('.score .score-count');
 const levelBlock = document.querySelector('.level-count');
 const restart = document.querySelector('.restart');
+let gameId = [];
 let maxScore = window.localStorage.getItem("maxScore") || undefined;
 let isGameOver = false;
 let score = 0;
@@ -198,6 +199,7 @@ function gameOver() {
         maxScore = score;
         window.localStorage.setItem("maxScore", score);
     }
+    gameId++;
     // score = maxScore;
     isGameOver = true;
     ctx.fillStyle = "#ff9b05";
