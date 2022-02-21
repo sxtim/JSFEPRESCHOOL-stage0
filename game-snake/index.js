@@ -3,8 +3,7 @@ let ctx = canvas.getContext('2d'); // получаем 2d апи сanvas
 const scoreBlock = document.querySelector('.score .score-count');
 const levelBlock = document.querySelector('.level-count');
 const restart = document.querySelector('.restart');
-let gameId = [];
-let maxScore = window.localStorage.getItem("maxScore") || undefined;
+let maxScore = window.localStorage.getItem("maxScore") || 0;
 let isGameOver = false;
 let score = 0;
 let level = 1;
@@ -193,14 +192,10 @@ function clear() {
 }
 
 function gameOver() {
-    // maxScore ? (maxScore = score) : null;
-    // score > maxScore ? (maxScore = score) : null;
     if (score > maxScore) {
         maxScore = score;
         window.localStorage.setItem("maxScore", score);
     }
-    gameId++;
-    // score = maxScore;
     isGameOver = true;
     ctx.fillStyle = "#ff9b05";
     ctx.textAlign = "center";
