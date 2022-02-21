@@ -208,16 +208,16 @@ function gameOver() {
 
 /*CONTROLS*/
 document.addEventListener('keydown', e => {
-        if (e.code === 'KeyW') {
+        if (e.code === 'KeyW' || e.code === 'ArrowUp') {
             snake.dy = -config.cellSize;
             snake.dx = 0;
-        } else if (e.code === 'KeyA') {
+        } else if (e.code === 'KeyA' || e.code === 'ArrowLeft') {
             snake.dx = -config.cellSize;
             snake.dy = 0;
-        } else if (e.code === 'KeyS') {
+        } else if (e.code === 'KeyS' || e.code === 'ArrowDown') {
             snake.dy = config.cellSize;
             snake.dx = 0;
-        } else if (e.code === 'KeyD') {
+        } else if (e.code === 'KeyD' || e.code === 'ArrowRight') {
             snake.dx = config.cellSize;
             snake.dy = 0;
         }
