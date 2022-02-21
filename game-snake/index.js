@@ -1,18 +1,24 @@
 let canvas = document.querySelector('.game__canvas');
 let ctx = canvas.getContext('2d'); // получаем 2d апи сanvas
-let scoreBlock = document.querySelector('.score .score-count');
+const scoreBlock = document.querySelector('.score .score-count');
+const levelBlock = document.querySelector('.level-count');
+const restart = document.querySelector('.restart');
+let maxScore = window.localStorage.getItem("maxScore") || undefined;
+let isGameOver = false;
 let score = 0;
+let level = 1;
+
 /*STARTING VALUES*/
 const config = {
     step: 0, // для пропуска игрового цикла
-    maxStep: 16, // для пропуска игрового цикла
+    maxStep: 18, // для пропуска игрового цикла
     cellSize: 16, // размер ячейки
     barrySize: 16 / 4 // размер ягоды
 }
 
 const snake = {
-    x: 16, // координата x
-    y: 16, // координата y
+    x: 160, // координата x
+    y: 176, // координата y
     dx: config.cellSize, // начальная скорость x
     dy: 0, // начальная скорость y
     tails: [], // массив для новых частей змейки
@@ -25,18 +31,24 @@ let berry = {
 }
 /*GAME LOOP*/
 drawScore(); // отрисовываем score
+drawLevel();
+randomPositionBerry();
 
 function gameLoop() {
-    requestAnimationFrame(gameLoop); // безконечено вызываем игровой цикл
-    if (++config.step <= config.maxStep) { // пропускаем цикл (контроль скорости отрисовки на экране)
-        return;
+    if (!isGameOver) {
+        requestAnimationFrame(gameLoop);// безконечено вызываем игровой цикл
+        if (++config.step < config.maxStep) { // пропускаем цикл (контроль скорости отрисовки на экране)
+            return;
+        }
+        config.step = 0;
+
+        clear() // каждый кадр очищаем canvas
+        snakeDraw(); //отрисовываем змейку
+        berryDraw(); // отрисовываем ягоду
+    } else {
+        clear();
+        gameOver();
     }
-    config.step = 0;
-
-    ctx.clearRect(0, 0, canvas.width, canvas.height); // каждый кадр очищаем canvas
-    snakeDraw(); //отрисовываем змейку
-    berryDraw(); // отрисовываем ягоду
-
 }
 
 requestAnimationFrame(gameLoop);
@@ -44,11 +56,11 @@ requestAnimationFrame(gameLoop);
 function snakeDraw() {
     snake.x += snake.dx; //начальное движение змейки
     snake.y += snake.dy;
-    snake.tails.unshift({x: snake.x, y: snake.y});
+
 
     collisionBorderGameField();
-    console.log('canvas width ' + canvas.width)
-    console.log('canvas height ' + canvas.height)
+
+    snake.tails.unshift({x: snake.x, y: snake.y});
 
     if (snake.tails.length > snake.tailsMax) {
         snake.tails.pop();
@@ -56,7 +68,7 @@ function snakeDraw() {
 
     snake.tails.forEach(function (e, index) {// рисуем змейку
         if (index === 0) {
-            ctx.fillStyle = '#ff8800';
+            ctx.fillStyle = '#e06c00';
         } else {
             ctx.fillStyle = '#ff9b05';
         }
@@ -64,36 +76,34 @@ function snakeDraw() {
         // circle.arc(e.x/* - config.cellSize / 2*/, e.y /*- config.cellSize / 2*/, config.cellSize / 2, 0, 2 * Math.PI);
         // ctx.fill(circle);
         ctx.fillRect(e.x, e.y, config.cellSize, config.cellSize);
-        // console.log('x :' + e.x);
-        // console.log('y :' + e.y);
         if (e.x === berry.x && e.y === berry.y) {
             snake.tailsMax++;
+            levelIncrease();
             counterScore();
             randomPositionBerry();
-            console.log('COLLISION')
         }
 
         for (let i = index + 1; i < snake.tails.length; i++) {
             if (e.x === snake.tails[i].x && e.y === snake.tails[i].y) {
-                restartGame();
+                // restartGame();
+                gameOver();
+                clear();
             }
         }
     })
 }
 
 function collisionBorderGameField() {
-    console.log(snake.x)
-    console.log(snake.y)
     if (snake.x < 0) {
-        snake.x = canvas.width //- config.cellSize;
-    } else if (snake.x > canvas.width - config.cellSize) {
-        snake.x = - config.cellSize;
+        snake.x = canvas.width - config.cellSize;
+    } else if (snake.x >= canvas.width) {
+        snake.x = 0;
     }
 
     if (snake.y < 0) {
-        snake.y = canvas.height //- config.cellSize;
-    } else if (snake.y > canvas.height - config.cellSize) {
-        snake.y = - config.cellSize;
+        snake.y = canvas.height - config.cellSize;
+    } else if (snake.y >= canvas.height) {
+        snake.y = 0;
     }
 }
 
@@ -105,18 +115,67 @@ function berryDraw() {
 }
 
 function randomPositionBerry() {
-    console.log(berry.x = getRandomInt(0, canvas.width / config.cellSize) * config.cellSize);
-    console.log(berry.y = getRandomInt(0, canvas.height / config.cellSize) * config.cellSize);
+    berry.x = getRandomInt(0, canvas.width / config.cellSize) * config.cellSize;
+    berry.y = getRandomInt(0, canvas.height / config.cellSize) * config.cellSize;
 
 }
 
-function restartGame() {
-    //todo
+// function restartGame() {
+//     //todo
+//     score = 0;
+//     drawScore();
+//     level = 1;
+//     drawLevel();
+//     snake.x = 160;
+//     snake.y = 176;
+//     snake.tails = [];
+//     config.maxStep = 18;
+//     snake.tailsMax = 3;
+//     snake.dx = config.cellSize;
+//     snake.dy = 0;
+//     // isGameOver = true;
+//     randomPositionBerry();
+//     gameLoop();
+// }
+
+function levelIncrease() {
+    if (snake.tailsMax > 4) {
+        level = 2;
+        config.maxStep = 16;
+        drawLevel();
+    }
+
+    if (snake.tailsMax > 7) {
+        level = 3;
+        config.maxStep = 12;
+        drawLevel();
+    }
+
+    if (snake.tailsMax > 10) {
+        level = 4;
+        config.maxStep = 8;
+        drawLevel();
+    }
+
+    if (snake.tailsMax > 15) {
+        level = 5;
+        config.maxStep = 4;
+        drawLevel();
+    }
+
+    if (snake.tailsMax > 20) {
+        level = 6;
+        config.maxStep = 3;
+        drawLevel();
+    }
 }
 
+function drawLevel() {
+    levelBlock.innerHTML = level;
+}
 
 function counterScore() { // счетчик очков
-    score++;
+    score += level;
     drawScore();
 }
 
@@ -126,6 +185,28 @@ function drawScore() { // отрисовка очков
 
 function getRandomInt(min, max) { // получаем рандомное число в заданном диапазоне
     return Math.floor(Math.random() * (max - min) + min);
+}
+
+function clear() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+function gameOver() {
+    // maxScore ? (maxScore = score) : null;
+    // score > maxScore ? (maxScore = score) : null;
+    if (score > maxScore) {
+        maxScore = score;
+        window.localStorage.setItem("maxScore", score);
+    }
+    // score = maxScore;
+    isGameOver = true;
+    ctx.fillStyle = "#ff9b05";
+    ctx.textAlign = "center";
+    ctx.font = "bold 30px Poppins, sans-serif";
+    ctx.fillText("GAME OVER", canvas.width / 2, canvas.height / 2 - 30);
+    ctx.font = "18px Poppins, sans-serif";
+    ctx.fillText(`SCORE   ${score}`, canvas.width / 2, canvas.height / 2 + 30);
+    ctx.fillText(`MAXSCORE   ${maxScore}`, canvas.width / 2, canvas.height / 2 + 50);
 }
 
 /*CONTROLS*/
@@ -146,8 +227,4 @@ document.addEventListener('keydown', e => {
     }
 )
 
-document.addEventListener('keydown', e => {
-    if (e.code === 'Space') {
-        config.maxStep = 1000;
-    }
-})
+restart.addEventListener('click', () => location.reload());
